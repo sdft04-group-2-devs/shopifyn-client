@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 import './SignUpPage.css';
 import ellipseImage from './assets/img.png';
 const SignUpPage = () => {
@@ -14,17 +14,19 @@ const SignUpPage = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
     if (username === "" || email === "" || phone === "" || password === "" || confirmPassword === "") {
-      toast.error("Please fill in all fields");
+      // toast.error("Please fill in all fields");
     } else if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
+      // toast.error("Passwords do not match");
+      // console.error('Passwords do not match');
     } else {
       // Perform signup logic here
-      toast.success("Signed up successfully!");
+      // toast.success("Signed up successfully!");
+      console.log('Signed Up Successfully');
     }
   };
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <div className="signup-container">
         <div className="signup-div">
           <div className="ellipse-container">
