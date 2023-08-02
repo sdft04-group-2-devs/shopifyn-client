@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import ProductList from './components/ProductList/ProductList'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
+import {Routes,Route} from 'react-router-dom';
+import SignUpPage from './pages/SignUpPage';
+import LogInPage from './pages/LogInPage';
+import './App.css';
+const App = () => {
   return (
-    <>
-      <ProductList/>
-    </>
-    
-  )
-}
-
-export default App
+    <Routes>
+        <Route exact path="/signup" element={<SignUpPage/>} />
+        <Route exact path="/login" element={<LogInPage/>} />
+        <Route exact path="/products" element={<ProductList/>}/>
+        {/* ...other routes of your app */}
+    </Routes>
+  );
+};
+export default App;
