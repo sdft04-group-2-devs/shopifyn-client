@@ -1,0 +1,73 @@
+.signup-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+  }
+  .signup-div {
+    width: 400px;
+    padding: 30px;
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .signup-div h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .input-wrapper {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  .input-wrapper label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  .input-wrapper input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #003D29;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #003D29;
+  }
+  p {
+    margin-top: 20px;
+  }
+  p a {
+    color: #333;
+    text-decoration: underline;
+  }
+  .toastify-container {
+    font-family: 'Roboto', sans-serif;
+  }
+  .toastify-content {
+    font-size: 14px;
+  }
+  .ellipse-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+  }
+  .ellipse-image {
+    height: 100%;
+    object-fit: cover;
+  }
