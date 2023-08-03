@@ -16,6 +16,24 @@ const LogInPage = () => {
       console.error('Please fillin all fields');
     } else {
       // Perform login logic here
+      fetch("http://localhost:3000/login", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email, password}),
+      })
+      .then((response) => {
+        if (response.ok) {
+          console.log('Logged in successfully');
+          // Do any other logic you need after successful login
+        } else {
+          console.error('Failed to log in');
+        }
+      })
+      .catch((error) => {
+        console.error('Error occurred during login:', error);
+      });
       // toast.success("Logged in successfully!");
       console.log('Logged in successfully');
     }
