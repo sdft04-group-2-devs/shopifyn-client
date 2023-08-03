@@ -14,6 +14,7 @@ const App = () => {
         <Route exact path="/login" element={<LogInPage/>} />
         <Route exact path="/products" element={<ProductList/>}/>
         <Route exact path='/user-profile' element= {<UpdateProfile />} />
+        <Route path='/' element= {<DeliveriesPage />} />
         {/* ...other routes of your app */}
     </Routes>
   );
