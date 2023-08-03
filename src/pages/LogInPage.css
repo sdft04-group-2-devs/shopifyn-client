@@ -1,0 +1,82 @@
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.form-container {
+  width: 40%;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+  width: 50%;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+  .input-wrapper {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  .input-wrapper label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    background-color: #003D29;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #f8f8f8;
+    color: #003D29;
+    border: 2px solid #003D29;
+  }
+   p {
+    margin-top: 20px;
+  }
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+  .toastify-container {
+    font-family: 'Roboto', sans-serif;
+  }
+  .toastify-content {
+    font-size: 14px;
+  }
+
+  .ellipse-image {
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  
+  
+  
