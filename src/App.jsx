@@ -7,6 +7,7 @@ import DeliveriesPage from './components/deliveries/deliveriesPage'
 import './App.css';
 import ProductList from './components/ProductList/ProductList';
 import UpdateProfile from './pages/profile/UpdateProfile';
+import LandingPage from './components/LandingPage';
 const App = () => {
   return (
     <Routes>
@@ -14,7 +15,8 @@ const App = () => {
         <Route exact path="/login" element={<LogInPage/>} />
         <Route exact path="/products" element={<ProductList/>}/>
         <Route exact path='/user-profile' element= {<UpdateProfile />} />
-        <Route path='/' element= {<DeliveriesPage />} />
+        <Route exact path='/deliveries' element= {<DeliveriesPage />} />
+        <Route path='/' element= {<LandingPage />} />
         {/* ...other routes of your app */}
     </Routes>
   );
