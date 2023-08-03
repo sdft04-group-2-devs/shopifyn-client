@@ -1,6 +1,6 @@
-.product-view {
+/* .product-view {
     display: flex;
-    flex-direction: row; /* Align children in a row */
+    flex-direction: row; 
     align-items: center;
     border: 1px solid #ccc;
     padding: 20px;
@@ -8,7 +8,7 @@
   
   .product-image {
     display: flex;
-    flex-direction: column; /* Stack image and thumbnail images vertically */
+    flex-direction: column;
   }
   
   .product-image img {
@@ -20,9 +20,9 @@
   
   .thumbnail-images {
     display: flex;
-    flex-direction: row; /* Align thumbnail images horizontally */
-    justify-content: center; /* Center thumbnail images horizontally */
-    margin-top: 10px; /* Add some spacing between the main image and thumbnails */
+    flex-direction: row; 
+    justify-content: center; 
+    margin-top: 10px; 
   }
   
   .thumbnail-images img {
@@ -124,4 +124,4 @@
   .star-outline {
     color: #ccc;
   }
-  
+   */

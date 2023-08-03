@@ -6,6 +6,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import { Badge, IconButton } from '@mui/material';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 
 const LandingPage = () => {
@@ -29,7 +30,8 @@ const LandingPage = () => {
       <nav className="nav">
         <ul className="navbar-items-left">
           <li>
-            <a href="/">Home</a>
+            {/* <a href="/">Home</a> */}
+            <Link to={'/'}>Home</Link>
           </li>
           <li>
             <a href="/products">Products</a>
@@ -44,7 +46,8 @@ const LandingPage = () => {
         </ul>
         <ul className="navbar-items-right">
         <li>
-            <a href="/contact">Sign In</a>
+            {/* <a href="/contact">Sign In</a> */}
+            <Link to={'/login'}>Sign In</Link>
           </li>
           <li>
             <IconButton>

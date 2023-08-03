@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 import './LogInPage.css';
@@ -9,6 +9,7 @@ import EllipseImage from './assets/img.png';
 const LogInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
   const handleLogIn = (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
@@ -28,6 +29,7 @@ const LogInPage = () => {
           console.log('Logged in successfully');
           // Do any other logic you need after successful login
           alert(response.json())
+          navigate('/')
         } else {
           console.error('Failed to log in');
         }
