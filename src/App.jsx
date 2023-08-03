@@ -6,13 +6,14 @@ import LogInPage from './pages/LogInPage';
 import DeliveriesPage from './components/deliveries/deliveriesPage'
 import './App.css';
 import ProductList from './components/ProductList/ProductList';
+import UpdateProfile from './pages/profile/UpdateProfile';
 const App = () => {
   return (
     <Routes>
         <Route exact path="/signup" element={<SignUpPage/>} />
         <Route exact path="/login" element={<LogInPage/>} />
         <Route exact path="/products" element={<ProductList/>}/>
-        <Route path='/' element= {<DeliveriesPage />} />
+        <Route exact path='/user-profile' element= {<UpdateProfile />} />
         {/* ...other routes of your app */}
     </Routes>
   );

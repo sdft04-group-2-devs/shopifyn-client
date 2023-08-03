@@ -1,0 +1,49 @@
+.update-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+.form-container {
+    width: 100%;
+    padding: 40px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .profile-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+  .image-container {
+    width: 50%;
+    height: 100vh;
+  }
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .ellipse-image {
+    width: 100%;
+    height: auto;
+  }
+
+
+
+  form {
+    flex: 1;
+    width: 60%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 8px 5px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #003D29;
+  }
