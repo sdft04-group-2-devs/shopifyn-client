@@ -25,13 +25,8 @@ const SignUpPage = () => {
     }
   };
   return (
-    <>
-      {/* <ToastContainer /> */}
       <div className="signup-container">
-        <div className="signup-div">
-          <div className="ellipse-container">
-            <img src={ellipseImage} alt="Ellipse" className="ellipse-image" />
-          </div>
+        <div className="form-container">
           <h1>Sign Up</h1>
           <form onSubmit={handleSignUp}>
             <div className="input-wrapper">
@@ -58,8 +53,10 @@ const SignUpPage = () => {
           </form>
           <p>Have an account? <Link to="/login">Sign in</Link></p>
         </div>
+        <div className="image-container">
+            <img src={ellipseImage} alt="Ellipse" className="ellipse-image" />
+        </div>
       </div>
-    </>
   );
 };
 export default SignUpPage;
