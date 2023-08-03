@@ -1,4 +1,4 @@
-/* #root {
+/*#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -42,15 +42,140 @@
 }
  *{
   background-color: rgb(255, 255, 255);
- } */
+ }
 
 body {
-  background-color: #f8f8f8;
+ background-color: #f8f8f8;
 }
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+} */
+
+/* .product-view {
+  display: flex;
+  flex-direction: row; 
+  border: 1px solid #ccc;
+  padding: 20px;
 }
 
+.product-image {
+  display: flex;
+  flex-direction: column; 
+}
+
+.product-image img {
+  width: 195px;
+  height: 200px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.thumbnail-images {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center; 
+  margin-top: 10px; 
+}
+
+.thumbnail-images img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.product-details {
+  flex: 1;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quantity-container button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.quantity-container span {
+  margin: 0 10px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.button-wrapper {
+  display: flex;
+}
+
+.buy-now-button,
+.add-to-cart-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #003d29;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.reviews {
+  margin-top: 20px;
+}
+
+.reviews h3 {
+  margin-bottom: 10px;
+}
+
+.review {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.review-content {
+  margin-bottom: 10px;
+}
+
+.review-metadata {
+  font-size: 12px;
+  color: #888;
+}
+
+.review-author {
+  margin-right: 10px;
+}
+
+.review-date {
+  margin-left: 10px;
+}
+
+.product-price {
+  font-weight: bold;
+}
+
+.star-rating {
+  display: flex;
+}
+
+.star-rating span {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.star-filled {
+  color: #ffce00;
+}
+
+.star-outline {
+  color: #ccc;
+}

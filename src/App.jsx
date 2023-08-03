@@ -6,6 +6,7 @@ import LogInPage from './pages/LogInPage';
 import DeliveriesPage from './components/deliveries/deliveriesPage'
 import './App.css';
 import ProductList from './components/ProductList/ProductList';
+import ProductView from './ProductView';
 const App = () => {
   return (
     <Routes>
@@ -13,6 +14,7 @@ const App = () => {
         <Route exact path="/login" element={<LogInPage/>} />
         <Route exact path="/products" element={<ProductList/>}/>
         <Route path='/' element= {<DeliveriesPage />} />
+        <Route path='/productview' element={<ProductView/>} />
         {/* ...other routes of your app */}
     </Routes>
   );

@@ -1,6 +1,9 @@
 .product-view {
     display: flex;
-    flex-direction: row; /* Align children in a row */
+    flex-direction: row; 
+    border: #003d29 1px solid;
+    
+    /* Align children in a row
     align-items: center;
     border: 1px solid #ccc;
     padding: 20px;
@@ -10,30 +13,46 @@
     display: flex;
     flex-direction: column; /* Stack image and thumbnail images vertically */
   }
+
+  /* .product-image{
+    border: 1px solid red;
+  }
+  
+  .product-details{
+    border: 1px solid green; */
+/* 
+  } */
   
   .product-image img {
-    width: 195px;
-    height: 200px;
-    object-fit: cover;
-    margin-right: 20px;
+    width: 573px;
+    height: 438px;
+    /* top: 175px;
+    left: 101px; */
   }
   
   .thumbnail-images {
     display: flex;
     flex-direction: row; /* Align thumbnail images horizontally */
-    justify-content: center; /* Center thumbnail images horizontally */
+    justify-content: flex-start; /* Center thumbnail images horizontally */
     margin-top: 10px; /* Add some spacing between the main image and thumbnails */
+    /* background-color: #f3eded; */
   }
   
   .thumbnail-images img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    margin-right: 10px;
+    width: 145px;
+    height: 134px;
+    /* top: 636px;
+    left: 120px; */
+    margin-right: 20px;
   }
   
   .product-details {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* width: 100%;
+    height: 60%; */
+    /* padding-right: 50px;
+    margin-right: 100px; */
   }
   
   .quantity-container {
@@ -61,16 +80,23 @@
   
   .button-wrapper {
     display: flex;
-  }
-  
-  .buy-now-button,
-  .add-to-cart-button {
+  } 
+  /* .add-to-cart-button{
     padding: 10px 20px;
     border: none;
     background-color: #003d29;
     color: #fff;
     cursor: pointer;
-    margin-right: 10px;
+    
+  } */
+  
+  .buy-now-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #003d29;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
   }
   
   .reviews {
@@ -124,4 +150,12 @@
   .star-outline {
     color: #ccc;
   }
-  
+   .product-details p {
+    font-style: Rhodium Libre;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30.78px;
+
+   }
+
+   
