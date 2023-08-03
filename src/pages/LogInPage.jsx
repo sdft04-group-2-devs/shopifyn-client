@@ -23,11 +23,8 @@ const LogInPage = () => {
   return (
     <>
       {/* <ToastContainer /> */}
-      <div className="signup-container">
-        <div className="signup-div">
-          <div className="ellipse-container">
-            <img src={EllipseImage} alt="Ellipse" className="ellipse-image" />
-          </div>
+      <div className="login-container">
+        <div className="form-container">
           <h1>Log In</h1>
           <form onSubmit={handleLogIn}>
             <div className="input-wrapper">
@@ -47,6 +44,9 @@ const LogInPage = () => {
             Forgot your password? <Link to="/reset-password">Reset Password</Link>
           </p>
         </div>
+        <div className="image-container">
+            <img src={EllipseImage} alt="Ellipse" className="ellipse-image" />
+          </div>
       </div>
     </>
   );
