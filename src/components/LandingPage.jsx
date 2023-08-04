@@ -78,7 +78,7 @@ const LandingPage = () => {
         </div>
         <div>
             <button className='view' onClick={() => {
-              fetch("")
+              fetch("http://[::1]:3000/products")
               .then(res => res.json())
               
             }}
