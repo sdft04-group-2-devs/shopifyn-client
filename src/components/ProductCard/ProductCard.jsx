@@ -1,7 +1,8 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import './ProductCard.css';
 
-const ProductCard = ({ name, image, price, rating }) => {
+const ProductCard = ({ name, image_url_1, price, rating }) => {
   const [liked, setLiked] = useState(false);
 
   const toggleLike = () => {
@@ -32,7 +33,7 @@ const ProductCard = ({ name, image, price, rating }) => {
   return (
     <div className="product-card">
       <div className="image">
-        <img src={image} alt={name} className="product-image" />
+        <img src={image_url_1} alt={name} className="product-image" />
         <div className={`like-button ${liked ? 'liked' : ''}`} onClick={toggleLike}>
           {liked ? '💚' : '🤍'}
         </div>
