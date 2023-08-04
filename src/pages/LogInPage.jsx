@@ -25,10 +25,11 @@ const LogInPage = () => {
       })
       .then((response) => {
         if (response.ok) {
-          console.log('Logged in successfully');
+          response.json().then((user) => {
+            console.log('Logged in successfully::', user.user);
           // Do any other logic you need after successful login
-          alert(response.json())
           navigate('/')
+          })
         } else {
           console.error('Failed to log in');
         }

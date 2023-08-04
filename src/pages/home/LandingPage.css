@@ -98,7 +98,7 @@
 
   }
 
-  button{
+  .explore-button{
     background-color: #003D29;
     color: #fff;
     padding: 20px 70px;
@@ -110,11 +110,11 @@
     margin-left: 50px; 
   }
 
-  button:hover {
+  .explore-button:hover {
     background-color: #00281c; 
   }
   
-  button:focus {
+  .explore-button:focus {
     outline: none; 
     box-shadow: 0 0 5px #003D29; 
   }

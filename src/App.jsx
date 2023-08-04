@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useContext } from 'react';
 import {Routes,Route} from 'react-router-dom';
 import './App.css';
 import SignUpPage from '../src/pages/SignUpPage'
@@ -9,7 +9,11 @@ import ProductView from './components/productslist/productview/ProductView';
 import ProductList from './components/productslist/ProductList/ProductList';
 import DeliveriesPage from './components/deliveries/deliveriesPage';
 import UpdateProfile from './pages/profile/UpdateProfile';
+import { UserContext } from './contexts/UserContext';
 const App = () => {
+  const {user} = useContext(UserContext)
+
+  console.log(user);
   return (
     <Routes>
         <Route exact path="/signup" element={<SignUpPage/>} />
