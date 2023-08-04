@@ -137,10 +137,10 @@ const SignUpPage = () => {
     <>
     {/* <ToastContainer /> */}
     <div className="signup-container">
-      <div className="form-container">
-        <h1>Sign Up</h1>
-        <form onSubmit={handleSignUp}>
-          <div className="input-wrapper">
+      <div className="signup-form-container">
+        <h1 className="signup-heading">Sign Up</h1>
+        <form className="signup-form" onSubmit={handleSignUp}>
+          <div className="signup-input-wrapper">
             {/* <label>Username:</label> */}
             {/* <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} /> */}
             <TextField
@@ -154,7 +154,7 @@ const SignUpPage = () => {
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="signup-input-wrapper">
             {/* <label>Email:</label> */}
             {/* <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} /> */}
             <TextField
@@ -168,7 +168,7 @@ const SignUpPage = () => {
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="signup-input-wrapper">
             {/* <label>Phone Number:</label> */}
             {/* <input type="text" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} /> */}
             <TextField
@@ -183,7 +183,7 @@ const SignUpPage = () => {
             />
           </div>
 
-          <div className="input-wrapper">
+          <div className="signup-input-wrapper">
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Role</InputLabel>
               <Select
@@ -200,7 +200,7 @@ const SignUpPage = () => {
             </FormControl>
           </div>
 
-          <div className="input-wrapper">
+          <div className="signup-input-wrapper">
             {/* <label>Password:</label> */}
             {/* <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} /> */}
             <TextField
@@ -214,7 +214,7 @@ const SignUpPage = () => {
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="signup-input-wrapper">
             {/* <label>Confirm Password:</label> */}
             {/* <input type="password" name="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} /> */}
             <TextField
@@ -240,16 +240,16 @@ const SignUpPage = () => {
               // }}
             />
           </div>
-          <button type="submit" onClick={handleSignUp}>
+          <button className="signup-button" type="submit" onClick={handleSignUp}>
             Sign Up
           </button>
         </form>
-        <p>
+        <p className="signup-to-login">
           Have an account? <Link to="/login">Sign in</Link>
         </p>
       </div>
-      <div className="image-container">
-        <img src={ellipseImage} alt="Ellipse" className="ellipse-image" />
+      <div className="signup-image-container">
+        <img src={ellipseImage} alt="Ellipse" className="signup-ellipse-image" />
       </div>
     </div>
     </>
