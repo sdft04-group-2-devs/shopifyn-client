@@ -71,13 +71,13 @@ const products =
 const ProductList = () => {
   return (
     <div>
-      <div className="category-buttons">
+      <header className="category-buttons">
         <button className="category-button active">All</button>
         <button className="category-button">Laptop</button>
         <button className="category-button">Desktops</button>
         <button className="category-button">Woofers</button>
         <button className="category-button">Phones</button>
-      </div>
+      </header>
       <div className="product-list">
         {products.map((product, index) => (
           <ProductCard key={index} {...product} />
