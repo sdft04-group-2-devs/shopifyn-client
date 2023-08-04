@@ -1,161 +1,157 @@
 .product-view {
-    display: flex;
-    flex-direction: row; 
-    border: #003d29 1px solid;
-    
-    /* Align children in a row
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 20px;
-  }
+  display: flex;
+  flex-direction: row; 
+  border: #003d29 1px solid;
   
-  .product-image {
-    display: flex;
-    flex-direction: column; /* Stack image and thumbnail images vertically */
-  }
+  /* Align children in a row
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
 
-  /* .product-image{
-    border: 1px solid red;
-  }
-  
-  .product-details{
-    border: 1px solid green; */
+.product-image {
+  display: flex;
+  flex-direction: column; /* Stack image and thumbnail images vertically */
+}
+/* .product-image{
+  border: 1px solid red;
+}
+
+.product-details{
+  border: 1px solid green; */
 /* 
-  } */
-  
-  .product-image img {
-    width: 573px;
-    height: 438px;
-    /* top: 175px;
-    left: 101px; */
-  }
-  
-  .thumbnail-images {
-    display: flex;
-    flex-direction: row; /* Align thumbnail images horizontally */
-    justify-content: flex-start; /* Center thumbnail images horizontally */
-    margin-top: 10px; /* Add some spacing between the main image and thumbnails */
-    /* background-color: #f3eded; */
-  }
-  
-  .thumbnail-images img {
-    width: 145px;
-    height: 134px;
-    /* top: 636px;
-    left: 120px; */
-    margin-right: 20px;
-  }
-  
-  .product-details {
-    display: flex;
-    flex-direction: column;
-    /* width: 100%;
-    height: 60%; */
-    /* padding-right: 50px;
-    margin-right: 100px; */
-  }
-  
-  .quantity-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .quantity-container button {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  
-  .quantity-container span {
-    margin: 0 10px;
-  }
-  
-  .buttons-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-  }
-  
-  .button-wrapper {
-    display: flex;
-  } 
-  /* .add-to-cart-button{
-    padding: 10px 20px;
-    border: none;
-    background-color: #003d29;
-    color: #fff;
-    cursor: pointer;
-    
-  } */
-  
-  .buy-now-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #003d29;
-    color: #fff;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .reviews {
-    margin-top: 20px;
-  }
-  
-  .reviews h3 {
-    margin-bottom: 10px;
-  }
-  
-  .review {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .review-content {
-    margin-bottom: 10px;
-  }
-  
-  .review-metadata {
-    font-size: 12px;
-    color: #888;
-  }
-  
-  .review-author {
-    margin-right: 10px;
-  }
-  
-  .review-date {
-    margin-left: 10px;
-  }
-  
-  .product-price {
-    font-weight: bold;
-  }
-  
-  .star-rating {
-    display: flex;
-  }
-  
-  .star-rating span {
-    cursor: pointer;
-    margin-right: 5px;
-  }
-  
-  .star-filled {
-    color: #ffce00;
-  }
-  
-  .star-outline {
-    color: #ccc;
-  }
-   .product-details p {
-    font-style: Rhodium Libre;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 30.78px;
+} */
 
-   }
+.product-image img {
+  width: 573px;
+  height: 438px;
+  /* top: 175px;
+  left: 101px; */
+}
 
-   
+.thumbnail-images {
+  display: flex;
+  flex-direction: row; /* Align thumbnail images horizontally */
+  justify-content: flex-start; /* Center thumbnail images horizontally */
+  margin-top: 10px; /* Add some spacing between the main image and thumbnails */
+  /* background-color: #f3eded; */
+}
+
+.thumbnail-images img {
+  width: 145px;
+  height: 134px;
+  /* top: 636px;
+  left: 120px; */
+  margin-right: 20px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%;
+  height: 60%; */
+  /* padding-right: 50px;
+  margin-right: 100px; */
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quantity-container button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.quantity-container span {
+  margin: 0 10px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.button-wrapper {
+  display: flex;
+} 
+/* .add-to-cart-button{
+  padding: 10px 20px;
+  border: none;
+  background-color: #003d29;
+  color: #fff;
+  cursor: pointer;
+  
+} */
+
+.buy-now-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #003d29;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.reviews {
+  margin-top: 20px;
+}
+
+.reviews h3 {
+  margin-bottom: 10px;
+}
+
+.review {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.review-content {
+  margin-bottom: 10px;
+}
+
+.review-metadata {
+  font-size: 12px;
+  color: #888;
+}
+
+.review-author {
+  margin-right: 10px;
+}
+
+.review-date {
+  margin-left: 10px;
+}
+
+.product-price {
+  font-weight: bold;
+}
+
+.star-rating {
+  display: flex;
+}
+
+.star-rating span {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.star-filled {
+  color: #ffce00;
+}
+
+.star-outline {
+  color: #ccc;
+}
+ .product-details p {
+  font-style: Rhodium Libre;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30.78px;
+ }

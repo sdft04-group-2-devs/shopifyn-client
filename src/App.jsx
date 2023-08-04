@@ -7,12 +7,14 @@ import DeliveriesPage from './components/deliveries/deliveriesPage'
 import './App.css';
 import ProductList from './components/ProductList/ProductList';
 import LandingPage from './components/LandingPage';
+import ProductView from './ProductView';
 const App = () => {
   return (
     <Routes>
         <Route exact path="/signup" element={<SignUpPage/>} />
         <Route exact path="/login" element={<LogInPage/>} />
         <Route exact path="/products" element={<ProductList/>}/>
+        <Route exact path='/product-view' element={<ProductView />} />
         <Route path='/' element= {<LandingPage />} />
         {/* ...other routes of your app */}
     </Routes>

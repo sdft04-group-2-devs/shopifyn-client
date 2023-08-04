@@ -1,4 +1,4 @@
-/*#root {
+/* root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -54,7 +54,7 @@ body {
   height: 100vh;
 } */
 
-/* .product-view {
+ /* .product-view {
   display: flex;
   flex-direction: row; 
   border: 1px solid #ccc;
@@ -178,4 +178,4 @@ body {
 
 .star-outline {
   color: #ccc;
-}
+} */ 

@@ -61,29 +61,23 @@ const ProductView = () => {
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
-
   const handleQuantityChange = (value) => {
     const newQuantity = Math.max(1, Math.min(quantity + value, 100));
     setQuantity(newQuantity);
   };
-
   const handleBuyNowClick = () => {
     console.log(`Buying ${quantity} product(s) now...`);
   };
-
   const handleAddToCartClick = () => {
     console.log(`Adding ${quantity} product(s) to cart...`);
   };
-
   const handleReviewRatingChange = (newRating) => {
     console.log(`User rated the product: ${newRating} stars`);
     setRating(newRating);
   };
-
   const toggleDetails = () => {
     setIsDetailsExpanded((prevState) => !prevState);
   };
-
   return (
     <div className="product-view-container">
       <div className="image-gallery">
@@ -126,7 +120,6 @@ const ProductView = () => {
         <button className="details-toggle" onClick={toggleDetails}>
           {isDetailsExpanded ? 'Hide Details' : 'More Details'}
         </button>
-
         
           <div className="button-wrapper">
             <button className="buy-now-button" onClick={handleBuyNowClick}>
@@ -149,5 +142,5 @@ const ProductView = () => {
     </div>
   );
 };
-
 export default ProductView;
+
