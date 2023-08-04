@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './components/deliveries/deliveriesPage.css';
+import './ProductView.css';
 
 const ProductView = () => {
   const [quantity, setQuantity] = useState(1);

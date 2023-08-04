@@ -1,12 +1,11 @@
 import React from 'react'
 import './LandingPage.css'
-import background_img from '../../public/background-img.jpg'
-import Footer from './Footer'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import { Badge, IconButton } from '@mui/material';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import Footer from '../../components/Footer';
 
 
 const LandingPage = () => {

@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // import { ToastContainer, toast } from 'react-toastify';
@@ -45,28 +44,28 @@ const LogInPage = () => {
     <>
       {/* <ToastContainer /> */}
       <div className="login-container">
-        <div className="form-container">
-          <h1>Log In</h1>
+        <div className="login-form-container">
+          <h1 className='login-heading'>Log In</h1>
           <form onSubmit={handleLogIn}>
-            <div className="input-wrapper">
+            <div className="login-input-wrapper">
               <label>Email:</label>
               <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
-            <div className="input-wrapper">
+            <div className="login-input-wrapper">
               <label>Password:</label>
               <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
-            <button type="submit">Log In</button>
+            <button className='login-button' type="submit">Log In</button>
           </form>
-          <p>
+          <p className='login-to-signup'>
             Don't have an account? <Link to="/signup">Sign up</Link>
           </p>
-          <p>
+          <p className='login-to-forgotpassword'>
             Forgot your password? <Link to="/reset-password">Reset Password</Link>
           </p>
         </div>
-        <div className="image-container">
-            <img src={EllipseImage} alt="Ellipse" className="ellipse-image" />
+        <div className="login-image-container">
+            <img src={EllipseImage} alt="Ellipse" className="login-ellipse-image" />
           </div>
       </div>
     </>

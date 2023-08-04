@@ -1,14 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import {Routes,Route} from 'react-router-dom';
-import SignUpPage from './pages/SignUpPage';
-import LogInPage from './pages/LogInPage';
-import DeliveriesPage from './components/deliveries/deliveriesPage'
 import './App.css';
-import ProductList from './components/ProductList/ProductList';
+import SignUpPage from '../src/pages/SignUpPage'
+import LogInPage from '../src/pages/LogInPage'
+import LandingPage from './pages/home/LandingPage';
+import ProductView from './components/productslist/productview/ProductView';
+import ProductList from './components/productslist/ProductList/ProductList';
+import DeliveriesPage from './components/deliveries/deliveriesPage';
 import UpdateProfile from './pages/profile/UpdateProfile';
-import LandingPage from './components/LandingPage';
-import ProductView from './ProductView';
 const App = () => {
   return (
     <Routes>
