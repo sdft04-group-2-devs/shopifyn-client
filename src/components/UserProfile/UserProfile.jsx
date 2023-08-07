@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './UserProfile.css';
 // eslint-disable-next-line react/prop-types
 const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeUsername }) => {
@@ -9,6 +9,18 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
   );
   const [newEmail, setNewEmail] = useState("");
   const [newUsername, setNewUsername] = useState("");
+  useEffect(() => {
+    // Retrieve saved email from localStorage on page load
+    const savedEmail = localStorage.getItem("email");
+    if (savedEmail) {
+      setEmail(savedEmail);
+    }
+    // Retrieve saved profile image from localStorage on page load
+    const savedProfileImage = localStorage.getItem("profileImage");
+    if (savedProfileImage) {
+      setProfileImage(savedProfileImage);
+    }
+  }, []);
   const handleEmailChange = (e) => {
     setNewEmail(e.target.value);
   };
@@ -16,6 +28,8 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
     e.preventDefault();
     setEmail(newEmail);
     setNewEmail("");
+    // Save updated email to localStorage
+    localStorage.setItem("email", newEmail);
   };
   const handleUsernameChange = (e) => {
     setNewUsername(e.target.value);
@@ -30,6 +44,8 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
     reader.onload = () => {
       if (reader.readyState === 2) {
         setProfileImage(reader.result);
+        // Save updated profile image to localStorage
+        localStorage.setItem("profileImage", reader.result);
       }
     };
     reader.readAsDataURL(e.target.files[0]);
