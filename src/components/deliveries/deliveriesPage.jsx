@@ -40,20 +40,20 @@ const DeliveriesPage = () => {
   const totalSteps = steps.length;
 
   const progressStepper = steps.map(({ step, label }) => (
-    <div className="step-wrapper" key={step}>
+    <div className="deliveries-step-wrapper" key={step}>
       <div
-        className={`step-style ${
+        className={`deliveries-step-style ${
           activeStep >= step ? "completed" : "incomplete"
         }`}
       >
         {activeStep > step ? (
-          <div className="checkmark">✓</div>
+          <div className="deliveries-checkmark">✓</div>
         ) : (
-          <span className="step-count">{step}</span>
+          <span className="deliveries-step-count">{step}</span>
         )}
       </div>
-      <div className="step-label-container">
-        <span className="step-label">{label}</span>
+      <div className="deliveries-step-label-container">
+        <span className="deliveries-step-label">{label}</span>
       </div>
     </div>
   ));
@@ -62,15 +62,15 @@ const DeliveriesPage = () => {
 
   return (
     <div className="deliveries_page">
-      <div className="product-container">
-        <div className="image-gallery">
-          <div className="main-image">
+      <div className="deliveries-product-container">
+        <div className="deliveries-image-gallery">
+          <div className="deliveries-main-image">
             <img
               src="https://mcphilipsdigital.co.ke/wp-content/uploads/2021/04/c06528196.png"
               alt="Product"
             />
           </div>
-          <div className="thumbnail-images">
+          <div className="deliveries-thumbnail-images">
             <img
               src="https://marvelafrica.co.ke/wp-content/uploads/2021/05/Lenovo_V50t_13IMB_CT2_03.png"
               alt="Product Thumbnail"
@@ -85,25 +85,25 @@ const DeliveriesPage = () => {
             />
           </div>
         </div>
-        <div className="product-details">
-          <h2 className="product-name">HP Desktop</h2>
-          <h3 className="product-brand">Brand: HP</h3>
-          <div className="quantity-setting">
+        <div className="deliveries-product-details">
+          <h2 className="deliveries-product-name">HP Desktop</h2>
+          <h3 className="deliveries-product-brand">Brand: HP</h3>
+          <div className="deliveries-quantity-setting">
             <h3>Quantity:</h3>
-            <div className="add-or-reduce-quantity">
+            <div className="deliveries-add-or-reduce-quantity">
               <button>-</button>
               <h5>1</h5>
               <button>+</button>
             </div>
           </div>
-          <h3 className="product-price">Price: Ksh. 40,000</h3>
-          <button className="details-toggle" onClick={toggleDetails}>
+          <h3 className="deliveries-product-price">Price: Ksh. 40,000</h3>
+          <button className="deliveries-details-toggle" onClick={toggleDetails}>
             {isDetailsExpanded ? "Hide Details" : "More Details"}
           </button>
         </div>
         {isDetailsExpanded && (
-          <div className="product-description">
-            <h3 className="description-heading">Description</h3>
+          <div className="deliveries-product-description">
+            <h3 className="deliveries-description-heading">Description</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
               rerum ipsum cupiditate, aperiam quas voluptas porro deserunt illo
@@ -113,10 +113,10 @@ const DeliveriesPage = () => {
           </div>
         )}
       </div>
-      <div className="mainContainer">
-        <div className="step-container" >{progressStepper}</div>
+      <div className="deliveries-mainContainer">
+        <div className="deliveries-step-container" >{progressStepper}</div>
 
-        <div className="details">
+        <div className="deliveries-details">
           {activeStep === 1 ? (
             <ShippingDetails />
           ) : activeStep === 2 ? (
@@ -125,14 +125,14 @@ const DeliveriesPage = () => {
             <PaymentSection />
           )}
         </div>
-        <div className="step-buttons-container">
+        <div className="deliveries-step-buttons-container">
           {activeStep > 1 && (
-            <button className="back-button" onClick={goBack}>
+            <button className="deliveries-back-button" onClick={goBack}>
               Back
             </button>
           )}
           <button
-            className="proceed-button"
+            className="deliveries-proceed-button"
             onClick={proceed}
             disabled={activeStep === totalSteps + 1}
           >
