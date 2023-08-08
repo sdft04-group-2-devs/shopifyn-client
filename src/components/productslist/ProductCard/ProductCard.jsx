@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './ProductCard.css';
 import { Link } from 'react-router-dom';
 
+
 const ProductCard = ({ id, name, image_url_1, price, rating }) => {
   const [liked, setLiked] = useState(false);
 
