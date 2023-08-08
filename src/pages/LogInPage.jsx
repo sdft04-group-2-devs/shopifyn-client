@@ -38,7 +38,7 @@ const LogInPage = () => {
         console.error('Error occurred during login:', error);
       });
       // toast.success("Logged in successfully!");
-      console.log('Logged in successfully');
+      // console.log('Logged in successfully');
     }
   };
   return (

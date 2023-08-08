@@ -124,6 +124,10 @@
   margin-bottom: 5px;
 }
 
+.product-view-add-to-cart-btn:hover {
+  background-color: #003d29
+}
+
 .ratings-container {
   margin-top: 10px;
   display: flex;

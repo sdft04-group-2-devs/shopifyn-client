@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ProductView.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../../footer and header/Footer";
 import NavBar from "../../footer and header/navigation/NavBar";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -16,6 +16,7 @@ const ProductView = () => {
   const [comment, setComment] = useState("");
   const [ratings, setRatings] = useState([]);
   const params = useParams();
+  const navigate = useNavigate()
 
   console.log(params);
 
@@ -42,11 +43,32 @@ const ProductView = () => {
   };
 
   const handleBuyNowClick = () => {
-    console.log(`Buying ${quantity} product(s) now...`);
+    navigate('/deliveries', {state: {product}})
   };
 
-  const handleAddToCartClick = () => {
-    console.log(`Adding ${quantity} product(s) to cart...`);
+  const handleAddToCartClick = async () => {
+    
+    try {
+      const response = await fetch('http://localhost:3000/cart_items', {
+        method: "Post",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${YOUR_ACCESS_TOKEN}`,
+        },
+        body: JSON.stringify({
+          product_id: product.id, // Assuming you have a unique ID for products
+          quantity: quantity,
+        }),
+      });
+      if (response.ok) {
+        console.log(`Adding ${quantity} product(s) to cart...`);
+      } else {
+        console.error('Error:', response.status);
+      }
+      
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   const handleSubmitRating = () => {
@@ -96,11 +118,10 @@ const ProductView = () => {
             Price: Ksh. {product.price}
           </h3>
           <div className="product-view-buttons">
-            <button className="product-view-buy-now-btn">Buy Now</button>
-            <IconButton>
+            <button onClick={handleBuyNowClick} className="product-view-buy-now-btn">Buy Now</button>
+            <button>
               Add to Cart
-              <AddShoppingCartIcon />
-            </IconButton>
+            </button>
           </div>
           <button
             className="product-view-details-toggle"

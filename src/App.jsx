@@ -11,9 +11,9 @@ import DeliveriesPage from './components/deliveries/deliveriesPage';
 import UpdateProfile from './pages/profile/UpdateProfile';
 import { UserContext } from './contexts/UserContext';
 const App = () => {
-  const {user} = useContext(UserContext)
+  // const {user} = useContext(UserContext)
 
-  console.log(user);
+  // console.log(user);
   return (
     <Routes>
         <Route exact path="/signup" element={<SignUpPage/>} />
