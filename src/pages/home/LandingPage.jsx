@@ -1,9 +1,5 @@
 import React from 'react'
 import './LandingPage.css'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PersonIcon from '@mui/icons-material/Person';
-import { Badge, IconButton } from '@mui/material';
-import styled from '@emotion/styled';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer and header/Footer';
 import NavBar from '../../components/footer and header/navigation/NavBar';

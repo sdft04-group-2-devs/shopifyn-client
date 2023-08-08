@@ -4,6 +4,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import styled from '@emotion/styled';
 import React from "react";
 import { Link } from "react-router-dom";
+import './NavBar.css'
+import Logo from '../../../../public/shopyfyn.png'
 
 
 const NavBar = () => {
@@ -19,14 +21,16 @@ const NavBar = () => {
       }));
 
   return (
-    <div className="header">
-      <div className="logo">
-        <h1>Shopifyn</h1>
+    <div className="nav-container">
+      <div className="nav-container-logo">
+        <img src={Logo} alt="Shopifyn" />
+        <span>Shopifyn</span>
       </div>
-      <nav className="nav">
-        <ul className="navbar-items-left">
+      {/* <nav className="nav-container-nav">
+        <div className="nav-container-navbar-items-left">
+
+          <ul className="nav-container-navbar-items-left">
           <li>
-            {/* <a href="/">Home</a> */}
             <Link to={"/"}>Home</Link>
           </li>
           <li>
@@ -38,32 +42,50 @@ const NavBar = () => {
           <li>
             <a href="/contact">Contact</a>
           </li>
-        </ul>
-        <ul className="navbar-items-right">
+          </ul>
+          </div>
+
+          <ul>
           <li>
-            {/* <a href="/contact">Sign In</a> */}
             <Link to={"/login"}>Sign In</Link>
           </li>
-          <li>
+          
             <IconButton>
               <PersonIcon />
               <a href="/account">Account</a>
             </IconButton>
-          </li>
-          <li>
+          
             <IconButton aria-label="cart">
-              {/* <ShoppingCartIcon/>
-                <a href="/cart">Cart</a> */}
               <StyledBadge badgeContent={4} color="secondary">
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>
-          </li>
+          
           <li>
             <a href="/contact">Log Out</a>
           </li>
         </ul>
-      </nav>
+        
+      </nav> */}
+
+      <div className="nav-container-nav">
+        <div className="nav-container-navbar-menu">
+          <ul className="nav-container-navbar-menu">
+            <li>Home</li>
+            <li>Products</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+
+        <input type="search" className="nav-container-navbar-search" placeholder="search" />
+
+        <ShoppingCartIcon className="nav-container-navbar-cart" />
+
+        <PersonIcon className="nav-container-navbar-user" />
+
+      </div>
+
     </div>
   );
 };
