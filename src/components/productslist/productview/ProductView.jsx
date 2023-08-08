@@ -1,10 +1,40 @@
-import React, { useState } from 'react';
-import './ProductView.css';
+import React, { useEffect, useState } from "react";
+import "./ProductView.css";
+import { useParams } from "react-router-dom";
+import Footer from "../../footer and header/Footer";
+import NavBar from "../../footer and header/navigation/NavBar";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { IconButton } from "@mui/material";
+import { PlusIcon, StarIcon } from "@heroicons/react/24/outline";
+import { RadioGroup } from "@headlessui/react";
 
 const ProductView = () => {
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
+  const [product, setProduct] = useState([]);
+  const [comment, setComment] = useState("");
+  const [ratings, setRatings] = useState([]);
+  const params = useParams();
+
+  console.log(params);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/products/${params.id}`)
+      .then((response) => {
+        if (response.ok) {
+          response.json().then((data) => {
+            setProduct(data);
+            console.log("product:", data);
+          });
+        } else {
+          console.error("Error:", response.status);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
 
   const handleQuantityChange = (value) => {
     const newQuantity = Math.max(1, Math.min(quantity + value, 100));
@@ -19,6 +49,10 @@ const ProductView = () => {
     console.log(`Adding ${quantity} product(s) to cart...`);
   };
 
+  const handleSubmitRating = () => {
+    console.log(`Adding ${quantity} product(s) to cart...`);
+  };
+
   const handleReviewRatingChange = (newRating) => {
     console.log(`User rated the product: ${newRating} stars`);
     setRating(newRating);
@@ -29,116 +63,114 @@ const ProductView = () => {
   };
 
   return (
-    // <div className="product-view">
-    //   <div className="product-image">
-    //     <img src="https://www.dataworld.co.ke/wp-content/uploads/2023/04/image-removebg-preview-69.png" alt="Product Image" />
-    //     <div className="thumbnail-images">
-    //       <img src="https://www.acornnetworks.com/wp-content/uploads/2021/09/HP-290-G4-Microtower-PC.png" alt="Thumbnail 1" />
-    //       <img src="https://marksoniccomputers.com/wp-content/uploads/2021/09/c06528251-1.png" alt="Thumbnail 2" />
-    //       <img src="https://first-tech.dz/672-large_default/micro-de-bureau-hp-290-g4-mt-pn-1c6w8ea-.jpg" alt="Thumbnail 3" />
-    //       {/* Add more thumbnail images here */}
-    //     </div>
-    //   </div>
-    //   <div className="product-details">
-    //     <h2>Hp Desktop</h2>
-    //     <p>Hp 24 mm full HD ultra-thin monitor (HDMI, VGA).</p>
-    //     <p className="product-price">Price: ksh.40,000</p>
-    //     <div className="quantity-container">
-    //       <button onClick={() => handleQuantityChange(-1)}>-</button>
-    //       <span>{quantity}</span>
-    //       <button onClick={() => handleQuantityChange(1)}>+</button>
-    //     </div>
-    //     <div className="buttons-container">
-    //       <div className="button-wrapper">
-    //         <button className="buy-now-button" onClick={handleBuyNowClick}>
-    //           Buy Now
-    //         </button>
-    //         <button className="add-to-cart-button" onClick={handleAddToCartClick}>
-    //           Add to Cart
-    //         </button>
-    //       </div>
-    //       <div className="reviews">
-    //         <h3>Reviews</h3>
-    //         <div className="review">
-    //           <div className="review-content">
-    //             <div className="star-rating">
-    //               {[...Array(5)].map((_, index) => (
-    //                 <span
-    //                   key={index}
-    //                   className={index < rating ? 'star-filled' : 'star-outline'}
-    //                   onClick={() => handleReviewRatingChange(index + 1)}
-    //                 />
-    //               ))}
-    //             </div>
-    //             <div>More for the money with this high quality.</div>
-    //           </div>
-    //           <div className="review-metadata">
-    //             <div>
-    //             <span className="review-rating">⭐⭐⭐⭐⭐</span>
-    //             </div>
-    //             <span className="review-author">John Doe</span>
-    //             <span className="review-date">26/7/23</span>
-    //           </div>
-    //         </div>
-    //         {/* Add more reviews here */}
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-
-
-    <div className="product-container">
-        <div className="image-gallery">
-          <div className="main-image">
-            <img
-              src="https://mcphilipsdigital.co.ke/wp-content/uploads/2021/04/c06528196.png"
-              alt="Product"
-            />
+    <>
+      <NavBar />
+      <div className="product-view-container">
+        <div className="product-view-image-gallery">
+          <div className="product-view-main-image">
+            <img src={product.image_url_1} alt="Product" />
           </div>
-          <div className="thumbnail-images">
-            <img
-              src="https://marvelafrica.co.ke/wp-content/uploads/2021/05/Lenovo_V50t_13IMB_CT2_03.png"
-              alt="Product Thumbnail"
-            />
-            <img
-              src="https://smartbuy.co.ke/wp-content/uploads/2022/04/HP-290-G4-DESKTOP-i7-300x300.png"
-              alt="Product Thumbnail"
-            />
-            <img
-              src="https://complandshop.com/wp-content/uploads/2022/07/Compland-Dell-Vostro-3888-core-i3-4GB-1TB-Ubuntu-Desktop-with-19.5-inch-Monitor.png"
-              alt="Product Thumbnail"
-            />
+          <div className="product-view-thumbnail-images">
+            <img src={product.image_url_1} alt="Product Thumbnail" />
+            <img src={product.image_url_2} alt="Product Thumbnail" />
+            <img src={product.image_url_3} alt="Product Thumbnail" />
           </div>
         </div>
-        <div className="product-details">
-          <h2 className="product-name">HP Desktop</h2>
-          <h3 className="product-brand">Brand: HP</h3>
-          <div className="quantity-setting">
+        <div className="product-view-product-details">
+          <h2 className="product-view-product-name">{product.name}</h2>
+          <h3 className="product-view-product-brand">{product.brand}</h3>
+          <div className="product-view-quantity-setting">
             <h3>Quantity:</h3>
-            <div className="add-or-reduce-quantity">
-              <button>-</button>
-              <h5>1</h5>
-              <button>+</button>
+            <div className="product-view-add-or-reduce-quantity">
+              <button className="product-view-add-btn">-</button>
+              <h5>{quantity}</h5>
+              <button
+                onClick={handleQuantityChange}
+                className="product-view-reduce-btn"
+              >
+                +
+              </button>
             </div>
           </div>
-          <h3 className="product-price">Price: Ksh. 40,000</h3>
-          <button className="details-toggle" onClick={toggleDetails}>
+          <h3 className="product-view-product-price">
+            Price: Ksh. {product.price}
+          </h3>
+          <div className="product-view-buttons">
+            <button className="product-view-buy-now-btn">Buy Now</button>
+            <IconButton>
+              Add to Cart
+              <AddShoppingCartIcon />
+            </IconButton>
+          </div>
+          <button
+            className="product-view-details-toggle"
+            onClick={toggleDetails}
+          >
             {isDetailsExpanded ? "Hide Details" : "More Details"}
           </button>
         </div>
         {isDetailsExpanded && (
-          <div className="product-description">
-            <h3 className="description-heading">Description</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-              rerum ipsum cupiditate, aperiam quas voluptas porro deserunt illo
-              praesentium. Laudantium provident excepturi harum ducimus, magni
-              quia magnam voluptatibus aliquam omnis?
-            </p>
+          <div className="product-view-product-description">
+            <h3 className="product-view-description-heading">Description</h3>
+            <p>{product.description}</p>
           </div>
         )}
-        {/* <button>Buy Now</button><button>Add to Cart</button> */}
+
+        <div className="ratings-container">
+          <div id="star-rating-average">
+            Average Rating:{" "}
+            {ratings.length > 0 ? (
+              calculateAverageRating()
+            ) : (
+              <span>No ratings</span>
+            )}
+          </div>
+          <div className="ratings-section">
+            <li className="comments-section">
+              {ratings.length > 0 ? (
+                ratings.map((rating) => (
+                  <div className="comment" key={rating.id}>
+                    <div id="user-star-rating">user Ratings</div>
+                    <p>{rating.comment}</p>
+                    <div className="star-rating">
+                      {[...Array(rating.star_rating)].map((_, index) => (
+                        <StarIcon key={index} className={`star filled`} />
+                      ))}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p>No comments</p>
+              )}
+            </li>
+          </div>
+          <div className="add-rating-comment">
+            <h4>Add Rating and Comment</h4>
+            <div className="rating-section">
+              <div id="user-star-rating">Your Rating:</div>
+              <div className="star-rating">
+                {[...Array(5)].map((_, index) => (
+                  <StarIcon
+                    key={index}
+                    className={`star ${index < rating ? "filled" : ""}`}
+                    onClick={() => setRating(index + 1)}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="comment-section">
+              <textarea
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                placeholder="Write your comment..."
+              />
+            </div>
+            <button onClick={handleSubmitRating}>Add comment</button>
+          </div>
+        </div>
       </div>
+      <Footer />
+    </>
   );
 };
 
