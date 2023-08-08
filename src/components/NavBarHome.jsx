@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import "./NavBar.css";
+import Logo from '../../public/shopifyn.png'
 const NavBar = () => {
   return (
     <nav className="navbar">
