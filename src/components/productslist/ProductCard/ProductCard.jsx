@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import './ProductCard.css';
+import { Link } from 'react-router-dom';
 
-const ProductCard = ({ name, image_url_1, price, rating }) => {
+const ProductCard = ({ id, name, image_url_1, price, rating }) => {
   const [liked, setLiked] = useState(false);
 
   const toggleLike = () => {
@@ -39,7 +40,7 @@ const ProductCard = ({ name, image_url_1, price, rating }) => {
         </div>
       </div>
       <div className="product-info">
-        <h3 className="product-name">{name}</h3>
+        <Link to={`/products/${id}`} className="product-name">{name}</Link>
         <div className="product-price">Ksh. {price}</div>
         <div className="product-rating">
           {renderStars()} 
