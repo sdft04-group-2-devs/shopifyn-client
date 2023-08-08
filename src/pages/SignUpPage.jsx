@@ -33,7 +33,7 @@ const SignUpPage = () => {
     phone_no: "",
     role: "",
     password: "",
-    confirmPassword: "",
+    confirm_password: "",
   });
 
   const handleChange = (e) => {
@@ -75,7 +75,7 @@ const SignUpPage = () => {
       formData.phone === "" ||
       formData.role === "" ||
       formData.password === "" ||
-      formData.confirmPassword === ""
+      formData.confirm_password === ""
     ) {
       // toast.error("Please fill in all fields");
       console.log("Fields cannot be empty");
@@ -85,7 +85,7 @@ const SignUpPage = () => {
       // </Stack>
 
       return;
-    } else if (formData.password !== formData.confirmPassword) {
+    } else if (formData.password !== formData.confirm_password) {
       // toast.error("Passwords do not match");
       // <Stack sx={{ width: '100%' }} spacing={2}>
       //   <Alert severity="error">Passwords do not match!</Alert>;
@@ -125,11 +125,14 @@ const SignUpPage = () => {
               navigate("/login");
             });
           } else {
+            console.log(formData);
             alert("Error:", res.status);
           }
         })
         .catch((error) => {
+          console.log(formData);
           alert("Error:", error);
+         
         });
     }
   };
@@ -220,8 +223,8 @@ const SignUpPage = () => {
             <TextField
               label="Confirm Password"
               variant="outlined"
-              value={formData.confirmPassword}
-              name="confirmPassword"
+              value={formData.confirm_password}
+              name="confirm_password"
               type="password"
               onChange={handleChange}
               fullWidth
