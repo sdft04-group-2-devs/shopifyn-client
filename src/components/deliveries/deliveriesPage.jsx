@@ -3,9 +3,13 @@ import "./deliveriesPage.css";
 import ShippingDetails from "./shippingDetails/ShippingDetails";
 import DeliverySelection from "./deliverySelection/DeliverySelection";
 import PaymentSection from "./payments/PaymentSection";
+import { useLocation } from "react-router";
 
 const DeliveriesPage = () => {
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
+  const location = useLocation()
+  const {product} = location.state || {}
+  console.log(product);
 
   const [activeStep, setActiveStep] = useState(1);
   const [buttonText, setButtonText] = useState("Proceed to Delivery");
@@ -66,28 +70,28 @@ const DeliveriesPage = () => {
         <div className="deliveries-page-image-gallery">
           <div className="deliveries-page-main-image">
             <img
-              src="https://mcphilipsdigital.co.ke/wp-content/uploads/2021/04/c06528196.png"
+              src={product.image_url_1}
               alt="Product"
             />
           </div>
           <div className="deliveries-page-thumbnail-images">
             <img
-              src="https://marvelafrica.co.ke/wp-content/uploads/2021/05/Lenovo_V50t_13IMB_CT2_03.png"
+              src={product.image_url_1}
               alt="Product Thumbnail"
             />
             <img
-              src="https://smartbuy.co.ke/wp-content/uploads/2022/04/HP-290-G4-DESKTOP-i7-300x300.png"
+              src={product.image_url_2}
               alt="Product Thumbnail"
             />
             <img
-              src="https://complandshop.com/wp-content/uploads/2022/07/Compland-Dell-Vostro-3888-core-i3-4GB-1TB-Ubuntu-Desktop-with-19.5-inch-Monitor.png"
+              src={product.image_url_3}
               alt="Product Thumbnail"
             />
           </div>
         </div>
         <div className="deliveries-page-product-details">
-          <h2 className="deliveries-page-product-name">HP Desktop</h2>
-          <h3 className="deliveries-page-product-brand">Brand: HP</h3>
+          <h2 className="deliveries-page-product-name">{product.name}</h2>
+          <h3 className="deliveries-page-product-brand">{product.brand}</h3>
           <div className="deliveries-page-quantity-setting">
             <h3>Quantity:</h3>
             <div className="deliveries-page-add-or-reduce-quantity">
@@ -105,10 +109,7 @@ const DeliveriesPage = () => {
           <div className="deliveries-page-product-description">
             <h3 className="deliveries-page-description-heading">Description</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-              rerum ipsum cupiditate, aperiam quas voluptas porro deserunt illo
-              praesentium. Laudantium provident excepturi harum ducimus, magni
-              quia magnam voluptatibus aliquam omnis?
+            {product.description}
             </p>
           </div>
         )}
