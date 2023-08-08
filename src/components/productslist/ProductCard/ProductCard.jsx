@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './ProductCard.css';
 
+// eslint-disable-next-line react/prop-types
 const ProductCard = ({ name, image_url_1, price, rating }) => {
   const [liked, setLiked] = useState(false);
 
