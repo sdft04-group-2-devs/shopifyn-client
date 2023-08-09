@@ -1,6 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import './PaymentSection.css'
+import mailjet from 'node-mailjet';
+
+const mailjetClient = mailjet.connect('352bb8e0120c8880cdd76d3ad2d16a82', 'fd0e850b2a461f5746571bcc796551f0');
 
 const PaymentSection = () => {
     const [paymentMethod, setPaymentMethod] = useState('delivery');

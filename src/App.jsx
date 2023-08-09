@@ -9,6 +9,7 @@ import ProductView from './components/productslist/productview/ProductView';
 import ProductList from './components/productslist/ProductList/ProductList';
 import DeliveriesPage from './components/deliveries/deliveriesPage';
 import UpdateProfile from './pages/profile/UpdateProfile';
+// eslint-disable-next-line no-unused-vars
 import { UserContext } from './contexts/UserContext';
 
 

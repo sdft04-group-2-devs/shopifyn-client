@@ -1,7 +1,11 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import { FormControl, InputLabel, TextField } from '@mui/material';
 import './Profile.css'
 import ellipseImage from "../assets/img.png";
+import mailjet from 'node-mailjet';
+
+const mailjetClient = mailjet.connect('352bb8e0120c8880cdd76d3ad2d16a82', 'fd0e850b2a461f5746571bcc796551f0');
 
 const UpdateProfile = () => {
   const [formData, setFormData] = useState({
@@ -38,6 +42,7 @@ const UpdateProfile = () => {
           const file = e.target.files[0];
           const reader = new FileReader();
           reader.onloadend = () => {
+            // eslint-disable-next-line no-undef
             setProfilePicture(reader.result);
           };
           if (file) {
