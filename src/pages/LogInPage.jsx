@@ -25,8 +25,11 @@ const LogInPage = () => {
       })
       .then((response) => {
         if (response.ok) {
-          console.log('Logged in successfully');
+          response.json().then((user) => {
+            console.log('Logged in successfully::', user.user);
           // Do any other logic you need after successful login
+          navigate('/')
+          })
         } else {
           console.error('Failed to log in');
         }
@@ -35,7 +38,7 @@ const LogInPage = () => {
         console.error('Error occurred during login:', error);
       });
       // toast.success("Logged in successfully!");
-      console.log('Logged in successfully');
+      // console.log('Logged in successfully');
     }
   };
   return (
