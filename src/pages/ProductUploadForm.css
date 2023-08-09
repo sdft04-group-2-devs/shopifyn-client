@@ -1,0 +1,73 @@
+.product-upload-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 50px;
+  border-radius: 8px;
+  margin: 140px;
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+}
+
+.product-name,
+.product-description,
+.product-price,
+.product-image-upload,
+.product-upload-button {
+  width: 100%; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.product-upload-button {
+  background-color: #0d4c0e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-left: 0px;
+}
+
+.product-upload-button:hover {
+  background-color: #f8f8f8;
+  color: #003d29;
+  border: 2px solid #003d29;
+}
+
+.product-upload-button:active {
+  transform: scale(1.2);
+}
+
+.upload-success {
+  margin-top: 10px;
+  color: green;
+}
+
+.product-upload-heading {
+  font-size: 2.5rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-bottom: 50px; 
+  margin-top: 15px;
+  color: #105a14;
+  text-align: center;
+}
+
+.go-to-dashboard-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.go-to-dashboard-button:hover {
+  background-color: #0056b3;
+}

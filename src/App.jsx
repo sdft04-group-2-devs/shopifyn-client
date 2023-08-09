@@ -3,15 +3,17 @@ import React from 'react';
 import {Routes,Route} from 'react-router-dom';
 import SignUpPage from './pages/SignUpPage';
 import LogInPage from './pages/LogInPage';
-import DeliveriesPage from './components/deliveries/deliveriesPage'
+import DeliveriesPage from './components/deliveries/deliveriesPage';
 import './App.css';
 import ProductList from './components/ProductList/ProductList';
+import ResetPassword from './pages/ResetPassword';
 const App = () => {
   return (
     <Routes>
         <Route exact path="/signup" element={<SignUpPage/>} />
         <Route exact path="/login" element={<LogInPage/>} />
         <Route exact path="/products" element={<ProductList/>}/>
+        <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path='/' element= {<DeliveriesPage />} />
         {/* ...other routes of your app */}
     </Routes>
