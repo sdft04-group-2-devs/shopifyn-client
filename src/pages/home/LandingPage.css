@@ -98,27 +98,19 @@
 
   }
 
-  button{
-    background-color: #003D29;
+  
+  .image-container button{
+    background-color:#003D29;
     color: #fff;
     padding: 20px 70px;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
     font-size: 16px;
     margin-top: 70vh; 
-    margin-left: 50px; 
-  }
-
-  button:hover {
-    background-color: #00281c; 
+    margin-left: 50px;
+    cursor: pointer; 
   }
   
-  button:focus {
-    outline: none; 
-    box-shadow: 0 0 5px #003D29; 
-  }
-
 .image-box {
   display: flex;
   align-items: center;
