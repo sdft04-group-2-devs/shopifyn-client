@@ -9,6 +9,8 @@ import ProductView from './components/productslist/productview/ProductView';
 import ProductList from './components/productslist/ProductList/ProductList';
 import DeliveriesPage from './components/deliveries/deliveriesPage';
 import UpdateProfile from './pages/profile/UpdateProfile';
+import MyDashboard from "./pages/MyDashboard";
+import ProductUploadForm  from "./pages/ProductUploadForm";
 const App = () => {
   return (
     <Routes>
@@ -18,6 +20,8 @@ const App = () => {
         <Route exact path='/user-profile' element= {<UpdateProfile />} />
         <Route exact path='/deliveries' element= {<DeliveriesPage />} />
         <Route exact path='/product-view' element= {<ProductView />} />
+        <Route exact path="/my-dashboard" element={<MyDashboard />} />
+        <Route exact path="/upload-product" element={<ProductUploadForm />} />
         <Route path='/' element= {<LandingPage />} />
         {/* ...other routes of your app */}
     </Routes>

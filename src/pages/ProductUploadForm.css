@@ -1,0 +1,121 @@
+.back-to-home-button {
+  background-color: #0d4c0e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.back-to-home-button:hover {
+  background-color: #f8f8f8;
+  color: #003d29;
+  border: 2px solid #003d29;
+}
+
+.product-upload-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 50px;
+  border-radius: 8px;
+  margin: 90px;
+  margin-top: 0px;
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+}
+
+.product-name,
+.product-description,
+.product-price,
+.product-image-upload,
+.product-upload-button,
+.go-to-dashboard-button {
+  width: 100%; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.product-upload-button {
+  background-color: #0d4c0e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-left: 0px;
+}
+
+.product-upload-button:hover {
+  background-color: #f8f8f8;
+  color: #003d29;
+  border: 2px solid #003d29;
+}
+
+.upload-success {
+  margin-top: 10px;
+  color: green;
+}
+
+.product-upload-heading {
+  font-size: 2.5rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-bottom: 50px; 
+  margin-top: 15px;
+  color: #105a14;
+  text-align: center;
+}
+
+.go-to-dashboard-button {
+  background-color: #0d4c0e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-left: 0px;
+}
+
+.go-to-dashboard-button:hover {
+  background-color: #f8f8f8;
+  color: #003d29;
+  border: 2px solid #003d29;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.categories-button {
+  margin-left: 10px;
+  margin-top: 20%;
+}
+
+.dropdown {
+  position: relative;
+  margin-left: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
