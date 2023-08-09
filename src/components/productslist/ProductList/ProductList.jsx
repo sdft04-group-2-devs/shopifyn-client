@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css';
 import ProductCard from '../ProductCard/ProductCard';
+import Header from '../../footer and header/Header';
+import NavBar from '../../footer and header/navigation/NavBar';
+import Footer from '../../footer and header/Footer';
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -18,19 +21,15 @@ const ProductList = () => {
     fetchProducts();
   }, []);
   return (
-    <div>
-      <header className="category-buttons">
-        <button className="category-button active">All</button>
-        <button className="category-button">Laptop</button>
-        <button className="category-button">Desktops</button>
-        <button className="category-button">Woofers</button>
-        <button className="category-button">Phones</button>
-      </header>
-      <div className="product-list">
+    <div className='products-main-page'>
+      <NavBar />
+      <Header />
+      <section className="product-list">
         {products.map((product, index) => (
           <ProductCard key={index} {...product} />
         ))}
-      </div>
+      </section>
+      <Footer />
     </div>
   );
 };

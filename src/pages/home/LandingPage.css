@@ -98,19 +98,26 @@
 
   }
 
-  
-  .image-container button{
-    background-color:#003D29;
+  .explore-button{
+    background-color: #003D29;
     color: #fff;
     padding: 20px 70px;
     border: none;
     border-radius: 4px;
     font-size: 16px;
     margin-top: 70vh; 
-    margin-left: 50px;
-    cursor: pointer; 
+    margin-left: 50px; 
+  }
+
+  .explore-button:hover {
+    background-color: #00281c; 
   }
   
+  .explore-button:focus {
+    outline: none; 
+    box-shadow: 0 0 5px #003D29; 
+  }
+
 .image-box {
   display: flex;
   align-items: center;
