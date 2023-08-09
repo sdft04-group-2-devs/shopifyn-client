@@ -29,15 +29,9 @@ const ShippingDetails = () => {
               <input type="tel" id="phone" />
             </div>
           </div>
-<<<<<<< HEAD
-          <div className="deliveries-shipping_details">
-            <h3>Shipping Details</h3>
-            <div className="deliveries-form-group">
-=======
           <div className="deliveries-page-shipping_details">
             <h3>Shipping Details</h3>
             <div className="deliveries-page-form-group">
->>>>>>> main
               <label htmlFor="house_no">House No.:</label>
               <input
                 type="text"
@@ -45,11 +39,7 @@ const ShippingDetails = () => {
                 disabled={isShippingSameAsBilling}
               />
             </div>
-<<<<<<< HEAD
-            <div className="deliveries-form-group">
-=======
             <div className="deliveries-page-form-group">
->>>>>>> main
               <label htmlFor="address">Address:</label>
               <input
                 type="text"
@@ -57,17 +47,6 @@ const ShippingDetails = () => {
                 disabled={isShippingSameAsBilling}
               />
             </div>
-<<<<<<< HEAD
-            <div className="deliveries-form-group">
-              <label htmlFor="city">City:</label>
-              <input type="text" id="city" disabled={isShippingSameAsBilling} />
-            </div>
-            <div className="deliveries-form-group">
-              <label htmlFor="area">Area:</label>
-              <input type="text" id="area" disabled={isShippingSameAsBilling} />
-            </div>
-            <div className="deliveries-form-group">
-=======
             <div className="deliveries-page-form-group">
               <label htmlFor="city">City:</label>
               <input type="text" id="city" disabled={isShippingSameAsBilling} />
@@ -77,7 +56,6 @@ const ShippingDetails = () => {
               <input type="text" id="area" disabled={isShippingSameAsBilling} />
             </div>
             <div className="deliveries-page-form-group">
->>>>>>> main
               <label htmlFor="postal_code">Postal Code:</label>
               <input
                 type="text"
@@ -85,11 +63,7 @@ const ShippingDetails = () => {
                 disabled={isShippingSameAsBilling}
               />
             </div>
-<<<<<<< HEAD
-            <div className="deliveries-form-group">
-=======
             <div className="deliveries-page-form-group">
->>>>>>> main
               <label htmlFor="landmark">Famous Landmark:</label>
               <input
                 type="text"
@@ -97,22 +71,14 @@ const ShippingDetails = () => {
                 disabled={isShippingSameAsBilling}
               />
             </div>
-<<<<<<< HEAD
-            <div className="deliveries-form-group">
-=======
             <div className="deliveries-page-form-group">
->>>>>>> main
               <input
                 type="checkbox"
                 id="same_as_billing"
                 checked={isShippingSameAsBilling}
                 onChange={toggleShippingSameAsBilling}
               />
-<<<<<<< HEAD
-              <label id="deliveries-for-check-box" htmlFor="same_as_billing">
-=======
               <label id="deliveries-page-for-check-box" htmlFor="same_as_billing">
->>>>>>> main
                 My shipping and billing address are the same
               </label>
             </div>

@@ -17,103 +17,59 @@
     overflow: hidden;
   }
 
-<<<<<<< HEAD
-  .deliveries-image-gallery {
-=======
   .deliveries-page-image-gallery {
->>>>>>> main
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 20px;
   }
 
-<<<<<<< HEAD
-  .deliveries-main-image img {
-=======
   .deliveries-page-main-image img {
->>>>>>> main
     width: 100%;
     height: auto;
   }
 
-<<<<<<< HEAD
-  .deliveries-thumbnail-images {
-=======
   .deliveries-page-thumbnail-images {
->>>>>>> main
     display: flex;
     gap: 10px;
   }
 
-<<<<<<< HEAD
-  .deliveries-thumbnail-images img {
-=======
   .deliveries-page-thumbnail-images img {
->>>>>>> main
     width: 80px;
     height: 80px;
   }
 
-<<<<<<< HEAD
-  .deliveries-product-details {
-    padding: 20px;
-  }
-
-  .deliveries-product-name {
-=======
   .deliveries-page-product-details {
     padding: 20px;
   }
 
   .deliveries-page-product-name {
->>>>>>> main
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 5px;
   }
 
-<<<<<<< HEAD
-  .deliveries-product-brand {
-=======
   .deliveries-page-product-brand {
->>>>>>> main
     font-size: 18px;
     margin-bottom: 10px;
   }
 
-<<<<<<< HEAD
-  .deliveries-quantity-setting {
-=======
   .deliveries-page-quantity-setting {
->>>>>>> main
     display: flex;
     align-items: center;
     margin-bottom: 20px;
   }
 
-<<<<<<< HEAD
-  .deliveries-quantity-setting h3 {
-    margin-right: 10px;
-  }
-
-  .deliveries-add-or-reduce-quantity {
-=======
   .deliveries-page-quantity-setting h3 {
     margin-right: 10px;
   }
 
   .deliveries-page-add-or-reduce-quantity {
->>>>>>> main
     display: flex;
     align-items: center;
   }
 
-<<<<<<< HEAD
-  .deliveries-add-or-reduce-quantity button {
-=======
   .deliveries-page-add-or-reduce-quantity button {
->>>>>>> main
     font-size: 18px;
     padding: 5px 10px;
     border: 1px solid #ccc;
@@ -121,30 +77,18 @@
     cursor: pointer;
   }
 
-<<<<<<< HEAD
-  .deliveries-add-or-reduce-quantity h5 {
-=======
   .deliveries-page-add-or-reduce-quantity h5 {
->>>>>>> main
     margin: 0 10px;
     font-size: 18px;
   }
 
-<<<<<<< HEAD
-  .deliveries-product-price {
-=======
   .deliveries-page-product-price {
->>>>>>> main
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
   }
 
-<<<<<<< HEAD
-  .deliveries-details-toggle {
-=======
   .deliveries-page-details-toggle {
->>>>>>> main
     background-color: #003d29;
     color: #fff;
     font-size: 16px;
@@ -155,40 +99,24 @@
     margin-bottom: 20px;
   }
 
-<<<<<<< HEAD
-  .deliveries-product-description {
-=======
   .deliveries-page-product-description {
->>>>>>> main
     padding: 20px;
     border-top: 1px solid #ccc;
   }
 
-<<<<<<< HEAD
-  .deliveries-description-heading {
-=======
   .deliveries-page-description-heading {
->>>>>>> main
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
   }
 
-<<<<<<< HEAD
-  .deliveries-product-description p {
-=======
   .deliveries-page-product-description p {
->>>>>>> main
     font-size: 16px;
   }
 
    /* Step Progress Widget */
 
-<<<<<<< HEAD
- .deliveries-mainContainer {
-=======
  .deliveries-page-mainContainer {
->>>>>>> main
     flex: 1;
     width: 100%;
     max-width: 40%;
@@ -200,22 +128,14 @@
     overflow: hidden;
 }
 
-<<<<<<< HEAD
-.deliveries-step-container {
-=======
 .deliveries-page-step-container {
->>>>>>> main
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
     position: relative;
 }
 
-<<<<<<< HEAD
-.deliveries-step-container::before{
-=======
 .deliveries-page-step-container::before{
->>>>>>> main
     content: '';
     position: absolute;
     background: #F5F6F6;
@@ -226,11 +146,7 @@
     left: 0;
 }
 
-<<<<<<< HEAD
-.deliveries-step-container::after{
-=======
 .deliveries-page-step-container::after{
->>>>>>> main
     content: '';
     position: absolute;
     background: #003d29;
@@ -242,20 +158,12 @@
     left: 0;
 }
 
-<<<<<<< HEAD
-  .deliveries-step-wrapper {
-=======
   .deliveries-page-step-wrapper {
->>>>>>> main
     position: relative;
     z-index: 1;
   }
 
-<<<<<<< HEAD
-  .deliveries-step-style {
-=======
   .deliveries-page-step-style {
->>>>>>> main
     width: 30px;
     height: 30px;
     background-color: #fff;
@@ -267,19 +175,11 @@
     transition: 0.4s ease;
   }
 
-<<<<<<< HEAD
-  .deliveries-step-style.completed {
-    border-color: #f0f0f0;
-  }
-
-  .deliveries-step-count {
-=======
   .deliveries-page-step-style.completed {
     border-color: #f0f0f0;
   }
 
   .deliveries-page-step-count {
->>>>>>> main
     font-size: 19px;
     color: #003d29;
     @media (max-width: 600px) {
@@ -287,11 +187,7 @@
     }
   }
 
-<<<<<<< HEAD
-  .deliveries-step-label-container {
-=======
   .deliveries-page-step-label-container {
->>>>>>> main
     position: absolute;
     top: 56px;
     left: 50%;
@@ -299,22 +195,14 @@
     border-bottom: 1px solid #ccc;
   }
 
-<<<<<<< HEAD
-  .deliveries-step-label {
-=======
   .deliveries-page-step-label {
->>>>>>> main
     font-size: 19px;
     @media (max-width: 600px) {
         font-size: 16px;
     }
   }
 
-<<<<<<< HEAD
-  .deliveries-checkmark {
-=======
   .deliveries-page-checkmark {
->>>>>>> main
     font-size: 26px;
     font-weight: 600;
     /* color: #003d29;
@@ -323,100 +211,59 @@
     transform: scaleX(-1) rotate(-46deg); */
   }
 
-<<<<<<< HEAD
-  .deliveries-details {
-=======
   .deliveries-page-details {
->>>>>>> main
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-top: 40px;
   }
 
-<<<<<<< HEAD
-  .deliveries-contact_details, .deliveries-shipping_details {
-=======
   .deliveries-page-contact_details, .deliveries-page-shipping_details {
->>>>>>> main
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
 
-<<<<<<< HEAD
-  .deliveries-form-group {
-=======
   .deliveries-page-form-group {
->>>>>>> main
     display: flex;
     flex-direction: column;
   }
 
-<<<<<<< HEAD
-  .deliveries-form-group label {
-=======
   .deliveries-page-form-group label {
->>>>>>> main
     font-size: 16px;
     margin-bottom: 5px;
   }
 
-<<<<<<< HEAD
-  .deliveries-form-group input {
-=======
   .deliveries-page-form-group input {
->>>>>>> main
     padding: 6px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
   }
 
-<<<<<<< HEAD
-  .deliveries-form-group input[type="checkbox"] {
-=======
   .deliveries-page-form-group input[type="checkbox"] {
->>>>>>> main
     display: flex;
     position: absolute;
     margin-right: 5px;
   }
 
-<<<<<<< HEAD
-  #deliveries-for-check-box {
-    margin-left: 20px;
-  }
-
-  .deliveries-step-buttons-container {
-=======
   #deliveries-page-for-check-box {
     margin-left: 20px;
   }
 
   .deliveries-page-step-buttons-container {
->>>>>>> main
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
   }
 
-<<<<<<< HEAD
-  .deliveries-proceed-button,
-.deliveries-back-button {
-=======
   .deliveries-page-proceed-button,
 .deliveries-page-back-button {
->>>>>>> main
   flex: 1;
   margin-right: 10px;
 }
 
-<<<<<<< HEAD
-  .deliveries-proceed-button {
-=======
   .deliveries-page-proceed-button {
->>>>>>> main
     background-color: #003d29;
     color: #fff;
     font-size: 18px;
@@ -426,29 +273,17 @@
     cursor: pointer;
   }
 
-<<<<<<< HEAD
-  .deliveries-proceed-button:hover {
-    background-color: #00271c;
-  }
-
-  .deliveries-proceed-button:disabled {
-=======
   .deliveries-page-proceed-button:hover {
     background-color: #00271c;
   }
 
   .deliveries-page-proceed-button:disabled {
->>>>>>> main
     background-color: #c0c0c0;
     cursor: not-allowed;
   }
 
 
-<<<<<<< HEAD
-  .deliveries-back-button {
-=======
   .deliveries-page-back-button {
->>>>>>> main
     background-color: #003d29;
     color: #fff;
     font-size: 18px;
@@ -458,19 +293,11 @@
     cursor: pointer;
   }
 
-<<<<<<< HEAD
-  .deliveries-back-button:hover {
-    background-color: #00271c;
-  }
-
-  .deliveries-back-button:disabled {
-=======
   .deliveries-page-back-button:hover {
     background-color: #00271c;
   }
 
   .deliveries-page-back-button:disabled {
->>>>>>> main
     background-color: #c0c0c0;
     cursor: not-allowed;
   }
