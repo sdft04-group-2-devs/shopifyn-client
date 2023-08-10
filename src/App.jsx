@@ -59,6 +59,8 @@ const App = () => {
     setFilteredProducts(filteredList);
 };
 
+
+
 const handleCartClick = () => {
   // setShowCart(!showCart);
   if (isAuthenticated) {

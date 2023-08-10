@@ -2,17 +2,13 @@ import { Badge, IconButton } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import styled from '@emotion/styled';
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import './NavBar.css'
 import Logo from '../../../../public/shopyfyn.png'
 
 
-const NavBar = ({ currentUser, setCurrentUser, onSearch, handleCartClick}) => {
-  const [showCart, setShowCart] = useState(false);
-  const [searchItem, setSearchItem] = useState('')
-  const navigate = useNavigate()
-  
+const NavBar = () => {
 
 
     const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -24,19 +20,11 @@ const NavBar = ({ currentUser, setCurrentUser, onSearch, handleCartClick}) => {
         },
       }));
 
-      const handleSearch = (e) => {
-        const searchTerm = e.target.value;
-        setSearchItem(searchTerm)
-        onSearch(searchTerm)
-      }
-
-      console.log(currentUser);
-
   return (
     <div className="nav-container">
       <div className="nav-container-logo">
         <img src={Logo} alt="Shopifyn" />
-        <span><Link to={'/'}>Shopifyn</Link></span>
+        <span>Shopifyn</span>
       </div>
       {/* <nav className="nav-container-nav">
         <div className="nav-container-navbar-items-left">
@@ -83,19 +71,18 @@ const NavBar = ({ currentUser, setCurrentUser, onSearch, handleCartClick}) => {
       <div className="nav-container-nav">
         <div className="nav-container-navbar-menu">
           <ul className="nav-container-navbar-menu">
-            <Link to={'/'}>Home</Link>
-            <Link to={'/products'}>Products</Link>
-            <Link>About Us</Link>
-            <Link>Contact Us</Link>
+            <li>Home</li>
+            <li>Products</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
           </ul>
         </div>
 
         <input type="search" className="nav-container-navbar-search" placeholder="search" />
 
-        <button onClick={handleCartClick}><ShoppingCartIcon className="nav-container-navbar-cart" /></button>
+        <ShoppingCartIcon className="nav-container-navbar-cart" />
 
         <PersonIcon className="nav-container-navbar-user" />
-        <p>welcome</p>
 
       </div>
 
