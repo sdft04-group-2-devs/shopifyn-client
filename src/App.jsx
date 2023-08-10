@@ -25,6 +25,7 @@ const App = () => {
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [showCart, setShowCart] = useState(false);
   const navigate = useNavigate()
+  const [userId, setUserId] = useState(null)
   
 
   console.log(products);
@@ -40,6 +41,7 @@ const App = () => {
           let ssUser = sessionStorage.getItem("user")
           let userObj = JSON.parse(ssUser)
           setCurrentUser(userObj)
+          setUserId(userObj.user.id)
           console.log('current user', typeof(userObj),currentUser);
         } else {
           console.error('Failed to fetch current user');
@@ -87,7 +89,7 @@ const handleCartClick = () => {
         <Route exact path='/deliveries' element= {<DeliveriesPage />} />
         <Route exact path="/my-dashboard" element={<MyDashboard />} />
         <Route exact path="/upload-product" element={<ProductUploadForm />} />
-        <Route exact path='/products/:id' element= {<ProductView currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+        <Route exact path='/products/:id' element= {<ProductView currentUser={userId} setCurrentUser={setCurrentUser} />} />
         <Route exact path='/cart' element={<Cart />} />
         <Route path='/' element= {<LandingPage isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} showCart={showCart} />} />
         {/* ...other routes of your app */}

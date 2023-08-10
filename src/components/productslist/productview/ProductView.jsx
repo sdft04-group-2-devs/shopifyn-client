@@ -7,9 +7,9 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { IconButton } from "@mui/material";
 import { PlusIcon, StarIcon } from "@heroicons/react/24/outline";
 import { RadioGroup } from "@headlessui/react";
-import { useAuth } from "../../../contexts/AuthContext";
 
-const ProductView = () => {
+
+const ProductView = ({currentUser, setCurrentUser}) => {
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
@@ -18,11 +18,11 @@ const ProductView = () => {
   const [ratings, setRatings] = useState([]);
   const params = useParams();
   const navigate = useNavigate()
-  const { authToken } = useAuth()
+  
 
-  console.log('authToken:',authToken);
+  
 
-  console.log(params);
+  
 
   useEffect(() => {
     fetch(`http://localhost:3000/products/${params.id}`)
@@ -30,6 +30,7 @@ const ProductView = () => {
         if (response.ok) {
           response.json().then((data) => {
             setProduct(data);
+            setRatings(data.reviews)
             console.log("product:", data);
           });
         } else {
@@ -76,8 +77,36 @@ const ProductView = () => {
   };
 
   const handleSubmitRating = () => {
-    console.log(`Adding ${quantity} product(s) to cart...`);
+    // console.log(`Adding ${quantity} product(s) to cart...`);
+      const ratingData = {
+      comment: comment,
+      star_rating: rating,
+      user_id: currentUser,
+      product_id: product.id,
   };
+
+  fetch("http://[::1]:3000/reviews", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(ratingData),
+  })
+    .then((response) => {
+      if (response.ok) {
+        response.json().then((data) => {
+          setRatings([...ratings, data]);
+          setRating(0);
+          setComment("");
+        });
+      } else {
+        console.error("Error:", response.status);
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};
 
   const handleReviewRatingChange = (newRating) => {
     console.log(`User rated the product: ${newRating} stars`);
@@ -86,6 +115,14 @@ const ProductView = () => {
 
   const toggleDetails = () => {
     setIsDetailsExpanded((prevState) => !prevState);
+  };
+  
+
+  const calculateAverageRating = () => {
+    const totalRatings = ratings.length;
+    const totalStarRating = ratings.reduce((sum, rating) => sum + rating.star_rating, 0);
+    const averageRating = totalStarRating / totalRatings;
+    return averageRating.toFixed(1);
   };
 
   return (
@@ -111,7 +148,9 @@ const ProductView = () => {
               <button className="product-view-add-btn">-</button>
               <h5>{quantity}</h5>
               <button
-                onClick={handleQuantityChange}
+                onClick={() => {
+                  handleQuantityChange('+')
+                }}
                 className="product-view-reduce-btn"
               >
                 +
