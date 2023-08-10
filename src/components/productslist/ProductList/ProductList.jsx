@@ -5,30 +5,26 @@ import ProductCard from '../ProductCard/ProductCard';
 import Header from '../../footer and header/Header';
 import NavBar from '../../footer and header/navigation/NavBar';
 import Footer from '../../footer and header/Footer';
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/products');
-        const fetchedProducts = await response.json();
-        // Merge the fetched products with the existing products
-        setProducts(existingProducts => [...existingProducts, ...fetchedProducts]);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    };
-    fetchProducts();
-  }, []);
+import Cart from '../cart/Cart';
+const ProductList = ({showCart ,handleSearch, handleCartClick,products, isAuthenticated, setCurrentUser, currentUser}) => {
+  // const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(products);
+  // const [showCart, setShowCart] = useState(false);
+
+  console.log('isAuthenticated',isAuthenticated);
+
   return (
     <div className='products-main-page'>
-      <NavBar />
+      <NavBar showCart={showCart} isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} />
       <Header />
       <section className="product-list">
         {products.map((product, index) => (
           <ProductCard key={index} {...product} />
         ))}
       </section>
+      {
+        showCart && <Cart handleCartClick={handleCartClick} isAuthenticated={isAuthenticated} currentUser={currentUser} />
+      }
       <Footer />
     </div>
   );

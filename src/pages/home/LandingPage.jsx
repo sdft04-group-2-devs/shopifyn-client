@@ -6,7 +6,7 @@ import NavBar from '../../components/footer and header/navigation/NavBar';
 
 
 
-const LandingPage = () => {
+const LandingPage = ({showCart, handleSearch, handleCartClick,products, isAuthenticated, setCurrentUser, currentUser}) => {
     const navigate = useNavigate()
 
     const handleExploreProductsClick = () => {
@@ -16,7 +16,7 @@ const LandingPage = () => {
   return (
    
     <>
-        <NavBar />
+        <NavBar showCart={showCart} isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} />
     <div className='image-container'>
         {/* <img src={background_img} alt="" /> */}
         <div className='text'>
