@@ -15,7 +15,6 @@ const ProductList = ({showCart ,handleSearch, handleCartClick,products, isAuthen
 
   return (
     <div className='products-main-page'>
-      <NavBar showCart={showCart} isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} />
       <Header />
       <section className="product-list">
         {products.map((product, index) => (
@@ -25,7 +24,6 @@ const ProductList = ({showCart ,handleSearch, handleCartClick,products, isAuthen
       {
         showCart && <Cart handleCartClick={handleCartClick} isAuthenticated={isAuthenticated} currentUser={currentUser} />
       }
-      <Footer />
     </div>
   );
 };

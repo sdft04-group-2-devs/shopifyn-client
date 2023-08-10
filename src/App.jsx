@@ -1,90 +1,151 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useContext, useEffect, useState } from 'react';
-import {Routes,Route, useNavigate} from 'react-router-dom';
-import './App.css';
-import SignUpPage from '../src/pages/SignUpPage'
-import LogInPage from '../src/pages/LogInPage'
-import LandingPage from './pages/home/LandingPage';
-import ProductView from './components/productslist/productview/ProductView';
-import ProductList from './components/productslist/ProductList/ProductList';
-import DeliveriesPage from './components/deliveries/deliveriesPage';
-import UpdateProfile from './pages/profile/UpdateProfile';
-import { ProductsContext } from './contexts/ProductsContext';
-import Cart from './components/productslist/cart/Cart';
+import React, { useContext, useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import "./App.css";
+import SignUpPage from "../src/pages/SignUpPage";
+import LogInPage from "../src/pages/LogInPage";
+import LandingPage from "./pages/home/LandingPage";
+import ProductView from "./components/productslist/productview/ProductView";
+import ProductList from "./components/productslist/ProductList/ProductList";
+import DeliveriesPage from "./components/deliveries/deliveriesPage";
+import UpdateProfile from "./pages/profile/UpdateProfile";
+import { ProductsContext } from "./contexts/ProductsContext";
+import Cart from "./components/productslist/cart/Cart";
+import NavBar from "./components/footer and header/navigation/NavBar";
+import Footer from "./components/footer and header/Footer";
 // import { useUser } from './contexts/UserContext';
 
-
 const App = () => {
-  // const user = useUser()
   const [currentUser, setCurrentUser] = useState(null);
-  const {products} = useContext(ProductsContext)
-  // const [products, setProducts] = useState([]);
+  const { products } = useContext(ProductsContext);
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [showCart, setShowCart] = useState(false);
-  const navigate = useNavigate()
-  
-
-  console.log(products);
+  const navigate = useNavigate();
+  const [userId, setUserId] = useState(null);
+  const [userRole, setUserRole] = useState(null);
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const response = await fetch('http://localhost:3000/logged_in'); // Change this URL to the appropriate endpoint
+        const response = await fetch("http://localhost:3000/logged_in"); // Change this URL to the appropriate endpoint
         if (response.ok) {
           const user = await response.json();
           //setCurrentUser(user);
 
-          let ssUser = sessionStorage.getItem("user")
-          let userObj = JSON.parse(ssUser)
-          setCurrentUser(userObj)
-          console.log('current user', typeof(userObj),currentUser);
+          let ssUser = sessionStorage.getItem("user");
+          let userObj = JSON.parse(ssUser);
+          setCurrentUser(userObj);
+          // setUserName(userObj.username)
+          setUserId(userObj.user.id);
+          setUserRole(userObj.user.role);
+          console.log("current user", typeof userObj, userObj);
+          // for (const attribute in currentUser) {
+          //   console.log(`${attribute}:`, currentUser[attribute]);
+          // }
         } else {
-          console.error('Failed to fetch current user');
+          console.error("Failed to fetch current user");
         }
       } catch (error) {
-        console.error('Error fetching current user:', error);
+        console.error("Error fetching current user:", error);
       }
     };
 
     fetchCurrentUser();
   }, []);
 
-  const isAuthenticated = currentUser !== null
+  const isAuthenticated = currentUser !== null;
 
   const handleSearch = (searchTerm) => {
-    
     const filteredList = products.filter((product) => {
       return product.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
     setFilteredProducts(filteredList);
-};
+  };
 
-const handleCartClick = () => {
-  // setShowCart(!showCart);
-  if (isAuthenticated) {
-    navigate('/cart')
-  } else {
-    console.log('Login');
-  }
-  
-};
+  const handleCartClick = () => {
+    // setShowCart(!showCart);
+    if (isAuthenticated) {
+      navigate("/cart");
+    } else {
+      console.log("Login");
+    }
+  };
 
-  
-  console.log(`${isAuthenticated}`,currentUser)
-  // console.log('The User is:',user);
+  console.log(`${isAuthenticated}`, currentUser);
+  console.log("user Role: ", userRole);
+  // setUserId(currentUser.user.id);
+  // if (currentUser) {
+  //   setUserId(currentUser.user.id);
+  // }
+
+  console.log(userId);
 
   return (
-    <Routes>
-        <Route exact path="/signup" element={<SignUpPage/>} />
-        <Route exact path="/login" element={<LogInPage/>} />
-        <Route exact path="/products" element={<ProductList products={products} isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} showCart={showCart}/>}/>
-        <Route exact path='/user-profile' element= {<UpdateProfile />} />
-        <Route exact path='/deliveries' element= {<DeliveriesPage />} />
-        <Route exact path='/products/:id' element= {<ProductView currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
-        <Route exact path='/cart' element={<Cart />} />
-        <Route path='/' element= {<LandingPage isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} showCart={showCart} />} />
-        {/* ...other routes of your app */}
-    </Routes>
+    <>
+      <Routes>
+        <Route exact path="/signup" element={<SignUpPage />} />
+        <Route exact path="/login" element={<LogInPage />} />
+        
+      </Routes>
+      <NavBar isAuthenticated={isAuthenticated}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              handleSearch={handleSearch}
+              handleCartClick={handleCartClick}
+              showCart={showCart}
+              userRole={userRole} />
+      <Routes>
+        <Route
+          exact
+          path="/products"
+          element={
+            <ProductList
+              products={products}
+              isAuthenticated={isAuthenticated}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              handleSearch={handleSearch}
+              handleCartClick={handleCartClick}
+              showCart={showCart}
+            />
+          }
+        />
+        <Route exact path="/user-profile" element={<UpdateProfile />} />
+        <Route exact path="/deliveries" element={<DeliveriesPage />} />
+        <Route
+          exact
+          path="/products/:id"
+          element={
+            <ProductView
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+            />
+          }
+        />
+        <Route
+          exact
+          path="/cart"
+          element={<Cart currentUserId={userId} products={products} />}
+        />
+        <Route
+          path="/"
+          element={
+            <LandingPage
+              isAuthenticated={isAuthenticated}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              handleSearch={handleSearch}
+              handleCartClick={handleCartClick}
+              showCart={showCart}
+              userRole={userRole}
+            />
+          }
+        />
+        {/* ...other routes go here */}
+      </Routes>
+
+      <Footer />
+    </>
   );
 };
 export default App;
