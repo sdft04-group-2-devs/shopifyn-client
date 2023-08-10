@@ -9,9 +9,12 @@ import ProductView from './components/productslist/productview/ProductView';
 import ProductList from './components/productslist/ProductList/ProductList';
 import DeliveriesPage from './components/deliveries/deliveriesPage';
 import UpdateProfile from './pages/profile/UpdateProfile';
+import MyDashboard from "./pages/MyDashboard";
+import ProductUploadForm  from "./pages/ProductUploadForm";
 import { ProductsContext } from './contexts/ProductsContext';
 import Cart from './components/productslist/cart/Cart';
 // import { useUser } from './contexts/UserContext';
+
 
 
 const App = () => {
@@ -82,6 +85,8 @@ const handleCartClick = () => {
         <Route exact path="/products" element={<ProductList products={products} isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} showCart={showCart}/>}/>
         <Route exact path='/user-profile' element= {<UpdateProfile />} />
         <Route exact path='/deliveries' element= {<DeliveriesPage />} />
+        <Route exact path="/my-dashboard" element={<MyDashboard />} />
+        <Route exact path="/upload-product" element={<ProductUploadForm />} />
         <Route exact path='/products/:id' element= {<ProductView currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
         <Route exact path='/cart' element={<Cart />} />
         <Route path='/' element= {<LandingPage isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} showCart={showCart} />} />
