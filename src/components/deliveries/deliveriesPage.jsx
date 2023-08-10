@@ -4,6 +4,8 @@ import ShippingDetails from "./shippingDetails/ShippingDetails";
 import DeliverySelection from "./deliverySelection/DeliverySelection";
 import PaymentSection from "./payments/PaymentSection";
 import { useLocation } from "react-router";
+import NavBar from "../footer and header/navigation/NavBar";
+import Footer from "../footer and header/Footer";
 
 const DeliveriesPage = () => {
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
@@ -65,6 +67,9 @@ const DeliveriesPage = () => {
   const width = `${(100 / (totalSteps - 1)) * (activeStep - 1)}%`;
 
   return (
+    <>
+
+    <NavBar />
     <div className="deliveries_page">
       <div className="deliveries-page-product-container">
         <div className="deliveries-page-image-gallery">
@@ -100,7 +105,7 @@ const DeliveriesPage = () => {
               <button>+</button>
             </div>
           </div>
-          <h3 className="deliveries-page-product-price">Price: Ksh. 40,000</h3>
+          <h3 className="deliveries-page-product-price">Price: Ksh. {product.price}</h3>
           <button className="deliveries-page-details-toggle" onClick={toggleDetails}>
             {isDetailsExpanded ? "Hide Details" : "More Details"}
           </button>
@@ -146,6 +151,8 @@ const DeliveriesPage = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
