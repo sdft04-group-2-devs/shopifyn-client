@@ -5,10 +5,10 @@ import ShippingDetails from "./shippingDetails/ShippingDetails";
 import DeliverySelection from "./deliverySelection/DeliverySelection";
 import PaymentSection from "./payments/PaymentSection";
 import { useLocation } from "react-router";
-import mailjet from 'node-mailjet';
+//import mailjet from 'node-mailjet';
 
 
-const mailjetClient = mailjet.connect('352bb8e0120c8880cdd76d3ad2d16a82', 'fd0e850b2a461f5746571bcc796551f0');
+//const mailjetClient = mailjet.connect('352bb8e0120c8880cdd76d3ad2d16a82', 'fd0e850b2a461f5746571bcc796551f0');
 
 const DeliveriesPage = () => {
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
