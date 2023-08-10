@@ -1,14 +1,28 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 import './LogInPage.css';
 import EllipseImage from './assets/img.png';
+import { useAuth } from '../contexts/AuthContext';
 const LogInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
+  const {updateAuthToken} = useAuth()
+  // const {updateUserId} = useUser()
+  const [loggedInUser, setLoggedInUser] = useState(null)
+
+
+  useEffect(() => {
+    const storedUser = sessionStorage.getItem("user")
+    if (storedUser) {
+      const foundUser = JSON.parse(storedUser)
+      setLoggedInUser(foundUser)
+    }
+  },[])
+
   const handleLogIn = (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
@@ -26,8 +40,12 @@ const LogInPage = () => {
       .then((response) => {
         if (response.ok) {
           response.json().then((user) => {
-            console.log('Logged in successfully::', user.user);
-          // Do any other logic you need after successful login
+            console.log('Logged in successfully::', user);
+            sessionStorage.setItem('user', JSON.stringify(user))
+            setLoggedInUser(user)
+          // after successful login...
+          updateAuthToken(user.token)
+          // updateUserId(user.user)
           navigate('/')
           })
         } else {
