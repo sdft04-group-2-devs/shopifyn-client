@@ -18,22 +18,14 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 const SignUpPage = () => {
-  // const [showPassword, setShowPassword] = React.useState(false);
-
-  // const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     phone_no: "",
     role: "",
     password: "",
-    confirm_password: "",
+    password_confirmation: ""
   });
 
   const handleChange = (e) => {
@@ -74,41 +66,30 @@ const SignUpPage = () => {
       formData.email === "" ||
       formData.phone === "" ||
       formData.role === "" ||
-      formData.password === "" ||
-      formData.confirm_password === ""
+      formData.password === "" 
     ) {
       // toast.error("Please fill in all fields");
       console.log("Fields cannot be empty");
       alert("Fields cannot be empty");
-      // <Stack sx={{ width: '100%' }} spacing={2}>
-      //   <Alert severity="error">Fields cannot be empty!</Alert>;
-      // </Stack>
 
       return;
-    } else if (formData.password !== formData.confirm_password) {
-      // toast.error("Passwords do not match");
-      // <Stack sx={{ width: '100%' }} spacing={2}>
-      //   <Alert severity="error">Passwords do not match!</Alert>;
-      // </Stack>
+    } else if (formData.password !== formData.password_confirmation) {
 
       alert("Passwords do not match");
       console.error("Passwords do not match");
       return;
-      // } else if (isStrongPassword(formData.password)) {
-      //   // toast.error("Passwords do not match");
-      //   // <Alert severity="error">
-      //   //   password should contain atleast one number and one special character
-      //   // </Alert>;
-      //   alert('password should contain atleast one number and one special character')
-      //   console.error("Enter a strong Password");
-      //   return
-      }else if (!validateEmail(formData.email)){
+      }
+    else if (!validateEmail(formData.email)){
       alert("Enter correct email format!");
       return;
-    } else {
+    } else if (formData.phone_no.length < 10 || formData.phone_no.length > 13 ) {
+      alert('Enter Correct Phone Number')
+      return
+    }
+     else {
       // Perform signup logic here
       // <Alert severity="success">Signed Up Successfully</Alert>;
-      fetch("http://localhost:3000/users", {
+      fetch("http://localhost:3000/signup", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -122,6 +103,7 @@ const SignUpPage = () => {
               // toast.success("Signed up successfully!");
               // console.log("Signed Up Successfully");
               console.log(user);
+              console.log(formData);
               navigate("/login");
             });
           } else {
@@ -223,24 +205,12 @@ const SignUpPage = () => {
             <TextField
               label="Confirm Password"
               variant="outlined"
-              value={formData.confirm_password}
-              name="confirm_password"
+              value={formData.password_confirmation}
+              name="password_confirmation"
               type="password"
               onChange={handleChange}
               fullWidth
               required
-              // InputProps={{
-              //   endAdornment: (
-              //     <IconButton
-              //     aria-label="toggle password visibility"
-              //     onClick={handleClickShowPassword}
-              //     onMouseDown={handleMouseDownPassword}
-              //     edge="end"
-              //     >
-              //       {showPassword ? <Visibility /> : <VisibilityOff />}
-              //     </IconButton>
-              //   )
-              // }}
             />
           </div>
           <button className="signup-button" type="submit" onClick={handleSignUp}>
