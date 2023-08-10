@@ -3,6 +3,7 @@
   margin-bottom: 20px;
   font-size: 1.5rem;
   color: #105a14;
+  padding: 1px;
 }
 
 .product-grid {
@@ -82,7 +83,7 @@
   margin-top: 60px;
   margin-left: 200px;
   margin-right: 1px; 
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
 .dashboard-header-button:hover, .dashboard-Categories-button:hover {
@@ -103,4 +104,39 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
+
+
+.img-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fbf0e4;
+  border-radius: 4%;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-bottom: 2%;
+}
+
+.best-selling-image{
+  width: 800px;
+  height: 200px;
+}
+
+.best-selling-image img{
+  width: 300px;
+  height: 200px;
+  margin-left: 2%;
+}
+
+h1 {
+  text-align: center;
+  white-space: nowrap;
+  margin-left: 13%;
+}
+
+
+
+
+
+
 

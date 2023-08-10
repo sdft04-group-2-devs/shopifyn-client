@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ProductUploadForm.css';
-// import NavBar from '../components/NavBarHome';
+import NavBar from '../components/footer and header/navigation/NavBar';
 import Footer from '../components/footer and header/Footer';
 
 const ProductUploadForm = ({ onUpload }) => {
@@ -35,6 +35,8 @@ const ProductUploadForm = ({ onUpload }) => {
   };
 
   return (
+    <>
+    <NavBar/>
      <div>
   <div>
       <button onClick={() => window.location.href = '/'} class="header-button">Back to Home</button>
@@ -78,6 +80,8 @@ const ProductUploadForm = ({ onUpload }) => {
       <button onClick={() => window.location.href = '/my-dashboard'} className="go-to-dashboard-button">Go to dashboard</button>
     </div>
   </div>
+  <Footer/>
+  </>
 );
 }
 

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './MyDashboard.css'
+import NavBar from '../components/footer and header/navigation/NavBar';
+import Footer from '../components/footer and header/Footer'
 
 const MyDashboard = () => {
   const [uploadedProducts, setUploadedProducts] = useState([]);
@@ -100,22 +102,15 @@ const MyDashboard = () => {
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
         price: 185.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
-
       },
-      // ...other products
     ];
 
     setUploadedProducts(mockData);
   }, []);
 
-  const handleDelete = (productId) => {
-    // Simulate deletion from backend
-    // In a real app, you'd make an API call to delete the product from the server
-    const updatedProducts = uploadedProducts.filter(product => product.id !== productId);
-    setUploadedProducts(updatedProducts);
-  };
-
   return (
+    <>
+    <NavBar />
     <div>
   <div>
       <button onClick={() => window.location.href = '/'} class="dashboard-header-button">Back to Home</button>
@@ -131,7 +126,15 @@ const MyDashboard = () => {
     </div>
       <button onClick={() => window.location.href = '/upload-product'} class="dashboard-header-button">+ Add new product</button>
   </div>
-    <h2 className="dashboard-heading">My Dashboard</h2>
+  <div>
+     <h2 className="dashboard-heading">My Dashboard</h2>     
+  </div>
+        <div className='img-box'>
+          <h1>Best selling accessory at 50% off</h1>
+            <div className="best-selling-image">
+                <img src="https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c07062905.png"/>
+            </div>
+        </div>
     <div className="product-grid">
       {uploadedProducts.map((product) => (
         <div key={product.id} className="product-card">
@@ -139,11 +142,15 @@ const MyDashboard = () => {
           <div className="dashboard-product-name">{product.name}</div>
           <div className="dashboard-product-description">{product.description}</div>
           <div className="dshboard-product-price">Ksh {product.price}</div>
-          <button onClick={() => handleDelete(product.id)}>Delete</button>
+          <button onClick={() => window.location.href = '/upload-product'} className="product-edit">Edit product</button>
+          <button  className="product-delete">Delete</button>
         </div>
       ))}
     </div>
   </div>
+  <Footer/>
+  </>
 );
 };
+
 export default MyDashboard;
