@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './ProductUploadForm.css';
+// import NavBar from '../components/NavBarHome';
+import Footer from '../components/footer and header/Footer';
 
 const ProductUploadForm = ({ onUpload }) => {
   const [productName, setProductName] = useState('');
@@ -15,7 +17,7 @@ const ProductUploadForm = ({ onUpload }) => {
 
   const handleUpload = () => {
     if (productName && productDescription && productPrice && productImages.length > 0) {
-      // send the data to a backend server
+      // send the data to our backend server
       setUploadSuccess(true);
       onUpload({
         name: productName,
@@ -34,38 +36,41 @@ const ProductUploadForm = ({ onUpload }) => {
 
   return (
      <div>
-  <div className="header">
-  <button onClick={() => window.location.href = '/'} className="back-to-home-button">Back to Home</button>
-  <button onClick={() => window.location.href = '/logout'} className="header-button">Log Out</button>
-  <button onClick={() => window.location.href = '/products'} className="header-button">Products</button>
-  <div className="dropdown">
-    <button className="Categories-button">Categories</button>
-    <div className="dropdown-content">
+  <div>
+      <button onClick={() => window.location.href = '/'} class="header-button">Back to Home</button>
+      <button onClick={() => window.location.href = '/products'} class="header-button">Products</button>
+      <div class="dropdown">
+        <button class="Categories-button">Categories</button>
+        <div class="dropdown-content">
+          <a href="/category/phones">Phones</a>
+          <a href="/category/laptops">Laptops</a>
+          <a href="/category/woofers">Woofers</a>
+          <a href="/category/desktops">Desktops</a>
+        </div>
     </div>
+    <button onClick={() => window.location.href = '/signup'} class="header-button">Log Out</button>
   </div>
-  <button onClick={() => window.location.href = '/logout'} className="header-button">Log Out</button>
-</div>
     <div className="product-upload-card">
       <h3 className="product-upload-heading">Upload Product</h3>
+      <label for="product-name">Product Name:</label>
       <input
         type="text"
-        placeholder="Product Name"
         value={productName}
         onChange={(e) => setProductName(e.target.value)}
-        className="product-name"
+        className="product-name-input"
       />
+      <label for="Description">Description:</label>
       <textarea
-        placeholder="Product Description"
         value={productDescription}
         onChange={(e) => setProductDescription(e.target.value)}
-        className="product-description"
+        className="product-description-input"
       />
+      <label for="product-price-input">Product Price:</label>
       <input
         type="number"
-        placeholder="Product Price"
         value={productPrice}
         onChange={(e) => setProductPrice(e.target.value)}
-        className="product-price"
+        className="product-price-input"
       />
       <input type="file" multiple onChange={handleImageChange} className="product-image-upload" />
       <button onClick={handleUpload} className="product-upload-button">Upload</button>

@@ -1,20 +1,3 @@
-.back-to-home-button {
-  background-color: #0d4c0e;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.back-to-home-button:hover {
-  background-color: #f8f8f8;
-  color: #003d29;
-  border: 2px solid #003d29;
-}
-
 .product-upload-card {
   position: relative;
   display: flex;
@@ -27,19 +10,17 @@
   box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
 }
 
-.product-name,
-.product-description,
-.product-price,
-.product-image-upload,
-.product-upload-button,
-.go-to-dashboard-button {
+.product-name-input,
+.product-description-input,
+.product-price-input,
+.product-image-upload {
   width: 100%; 
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .product-upload-button {
@@ -50,7 +31,8 @@
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 50px;
-  margin-left: 0px;
+  margin-left: 5px;
+  width: 100%;
 }
 
 .product-upload-button:hover {
@@ -61,7 +43,7 @@
 
 .upload-success {
   margin-top: 10px;
-  color: green;
+  color: rgb(0, 0, 0);
 }
 
 .product-upload-heading {
@@ -80,8 +62,9 @@
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  margin-top: 5px;
-  margin-left: 0px;
+  margin-top: 10px;
+  margin-left: 5px;
+  width: 100%;
 }
 
 .go-to-dashboard-button:hover {
@@ -90,27 +73,33 @@
   border: 2px solid #003d29;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 10px;
+.header-button, .Categories-button {
+  background-color: #0d4c0e;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 60px;
+  margin-left: 150px;
+  margin-right: 125px; 
+  margin-bottom: 50px;
 }
 
-.categories-button {
-  margin-left: 10px;
-  margin-top: 20%;
+.header-button:hover, .Categories-button:hover {
+  background-color: #f8f8f8;
+  color: #003d29;
+  border: 2px solid #003d29;
 }
-
 .dropdown {
   position: relative;
-  margin-left: 10px;
+  display: inline-block;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: white;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -118,4 +107,15 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-content a:hover {
+  background-color: lightgray;
 }

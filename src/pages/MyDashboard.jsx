@@ -5,8 +5,7 @@ const MyDashboard = () => {
   const [uploadedProducts, setUploadedProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch user's uploaded products from the backend here
-    // For demonstration purposes, let's assume you have a mock data array
+    // Fetch  products from the backend 
     const mockData = [
       {
         id: 1,
@@ -20,7 +19,7 @@ const MyDashboard = () => {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 35.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
 
       },
@@ -28,7 +27,7 @@ const MyDashboard = () => {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 45.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
 
       },
@@ -36,7 +35,7 @@ const MyDashboard = () => {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 35.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
 
       },
@@ -44,7 +43,7 @@ const MyDashboard = () => {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 55.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
 
       },
@@ -52,7 +51,7 @@ const MyDashboard = () => {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 95.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
 
       },
@@ -60,7 +59,7 @@ const MyDashboard = () => {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 85.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
 
       },
@@ -68,7 +67,7 @@ const MyDashboard = () => {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 75.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
 
       },
@@ -76,7 +75,7 @@ const MyDashboard = () => {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 565.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
 
       },
@@ -84,7 +83,7 @@ const MyDashboard = () => {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 175.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
 
       },
@@ -92,14 +91,14 @@ const MyDashboard = () => {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 195.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
       },
       {
         id: 2,
         name: 'Product 2',
         description: '13.3" Retina display, M1 chip with up to 16GB RAM, up to 2TB SSD, macOS, Thunderbolt 3 ports, sleek design.',
-        price: 15.49,
+        price: 185.49,
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepSteTlT5lsXJ2P2V7vrOGYGmIf7nbquFrg&usqp=CAU'
 
       },
@@ -118,14 +117,28 @@ const MyDashboard = () => {
 
   return (
     <div>
+  <div>
+      <button onClick={() => window.location.href = '/'} class="dashboard-header-button">Back to Home</button>
+      <button onClick={() => window.location.href = '/products'} class="dashboard-header-button">Products</button>
+      <div class="dropdown">
+        <button class="dashboard-Categories-button">Categories</button>
+        <div class="dropdown-content">
+          <a href="/category/phones">Phones</a>
+          <a href="/category/laptops">Laptops</a>
+          <a href="/category/woofers">Woofers</a>
+          <a href="/category/desktops">Desktops</a>
+        </div>
+    </div>
+      <button onClick={() => window.location.href = '/upload-product'} class="dashboard-header-button">+ Add new product</button>
+  </div>
     <h2 className="dashboard-heading">My Dashboard</h2>
     <div className="product-grid">
       {uploadedProducts.map((product) => (
         <div key={product.id} className="product-card">
           <img src={product.image} alt={product.name} className="product-image" />
-          <h3>{product.name}</h3>
-          <p>{product.description}</p>
-          <p>Price: ${product.price}</p>
+          <div className="dashboard-product-name">{product.name}</div>
+          <div className="dashboard-product-description">{product.description}</div>
+          <div className="dshboard-product-price">Ksh {product.price}</div>
           <button onClick={() => handleDelete(product.id)}>Delete</button>
         </div>
       ))}
