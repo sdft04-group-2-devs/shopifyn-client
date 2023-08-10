@@ -1,30 +1,40 @@
-import { createContext, useEffect, useState } from "react";
+// import React, { createContext, useContext, useEffect, useState } from 'react';
 
+// const UserContext = createContext();
 
+// export function UserProvider({ children }) {
+//   const [currentUser, setCurrentUser] = useState(null);
 
+//   useEffect(() => {
+//     const fetchCurrentUser = async () => {
+//       try {
+//         const response = await fetch('http://localhost:3000/logged_in'); // Change this URL to the appropriate endpoint
+//         if (response.ok) {
+//           const user = await response.json();
+//           setCurrentUser(user);
+//           sessionStorage.setItem("user", JSON.stringify(user));
+//         } else {
+//           console.error('Failed to fetch current user');
+//         }
+//       } catch (error) {
+//         console.error('Error fetching current user:', error);
+//       }
+//     };
 
-export const UserContext = createContext()
+//     fetchCurrentUser();
+//   }, []);
 
-const UserProvider = ({children}) => {
-    const [user, setUser] = useState([])
-    // fetch user
-    useEffect(() => {
-        const fetchProducts = async () =>{
-            const response = await fetch('http://localhost:3000/users')
-            const data = await response.json()
-            if (data) {
-                setUser(data)
-            } else {
-                console.log('An error occured');
-            }
-            
-        }
-        fetchProducts()
-    }, [])
+//   return (
+//     <UserContext.Provider value={currentUser}>
+//       {children}
+//     </UserContext.Provider>
+//   );
+// }
 
-    return <UserContext.Provider value={{user}}>
-        {children}
-    </UserContext.Provider>
-}
-
-export default UserProvider
+// export function useUser() {
+//   const context = useContext(UserContext);
+//   if (context === undefined) {
+//     throw new Error('User must be used within a UserProvider');
+//   }
+//   return context;
+// }

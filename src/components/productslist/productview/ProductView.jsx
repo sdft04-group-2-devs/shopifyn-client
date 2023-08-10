@@ -7,6 +7,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { IconButton } from "@mui/material";
 import { PlusIcon, StarIcon } from "@heroicons/react/24/outline";
 import { RadioGroup } from "@headlessui/react";
+import { useAuth } from "../../../contexts/AuthContext";
 
 const ProductView = () => {
   const [quantity, setQuantity] = useState(1);
@@ -17,6 +18,9 @@ const ProductView = () => {
   const [ratings, setRatings] = useState([]);
   const params = useParams();
   const navigate = useNavigate()
+  const { authToken } = useAuth()
+
+  console.log('authToken:',authToken);
 
   console.log(params);
 
@@ -53,7 +57,7 @@ const ProductView = () => {
         method: "Post",
         headers: {
           "Content-Type": "application/json",
-          // Authorization: `Bearer ${YOUR_ACCESS_TOKEN}`,
+          Authorization: `Bearer ${authToken}`,
         },
         body: JSON.stringify({
           product_id: product.id, // Assuming you have a unique ID for products
@@ -119,7 +123,7 @@ const ProductView = () => {
           </h3>
           <div className="product-view-buttons">
             <button onClick={handleBuyNowClick} className="product-view-buy-now-btn">Buy Now</button>
-            <button>
+            <button onClick={handleAddToCartClick} className="product-view-add-to-cart-btn">
               Add to Cart
             </button>
           </div>
