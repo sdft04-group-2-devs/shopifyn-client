@@ -22,17 +22,19 @@ const LandingPage = () => {
         <div className='text'>
             <h1> You order, we deliver</h1>
             <p> At Shopifyn, we are passionate about technology and committed to bringing you the best selection of computers and accessories. Whether you are a tech enthusiast, a gamer, a creative professional, or just looking for a reliable workhorse, we have the perfect solution for you.</p>
+            <button onClick={handleExploreProductsClick}>Shop Now</button>
         </div>
-        <div>
+        {/* <div>
         <button onClick={handleExploreProductsClick} className='explore-button'>
           Explore our Products
         </button>
-        </div>
+        <button>Shop Now</button>
+        </div> */}
     </div>
     <div className='image-box'>
         <h1>Grab upto 50% Off on Selected Computers and Accessories</h1>
         <img src="https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c07062905.png" alt="" className = 'monitor'/>
-        <button>Shop Now</button>
+        {/* <button>Shop Now</button> */}
     </div>
 
     <div className='top-categories'>
@@ -67,6 +69,7 @@ const LandingPage = () => {
     </div>
     <div className='best-deals'>
       <h1>Today's Best Deals For You</h1>
+      
     </div>
 
   <Footer/>
