@@ -1,7 +1,9 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import './UserProfile.css';
-// eslint-disable-next-line react/prop-types
+import { Image, Transformation } from 'cloudinary-react';
+import Axios from 'axios';
+import ImageUpload from '../../ImageUpload';
+
 const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeUsername }) => {
   const [email, setEmail] = useState(initialEmail);
   const [profileImage, setProfileImage] = useState(
@@ -9,61 +11,71 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
   );
   const [newEmail, setNewEmail] = useState("");
   const [newUsername, setNewUsername] = useState("");
+  
   useEffect(() => {
-    // Retrieve saved email from localStorage on page load
     const savedEmail = localStorage.getItem("email");
     if (savedEmail) {
       setEmail(savedEmail);
     }
-    // Retrieve saved profile image from localStorage on page load
     const savedProfileImage = localStorage.getItem("profileImage");
     if (savedProfileImage) {
       setProfileImage(savedProfileImage);
     }
   }, []);
+  
   const handleEmailChange = (e) => {
     setNewEmail(e.target.value);
   };
+  
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     setEmail(newEmail);
     setNewEmail("");
-    // Save updated email to localStorage
     localStorage.setItem("email", newEmail);
   };
+  
   const handleUsernameChange = (e) => {
     setNewUsername(e.target.value);
   };
+  
   const handleUsernameSubmit = (e) => {
     e.preventDefault();
     onChangeUsername(newUsername);
     setNewUsername("");
   };
-  const handleImageChange = (e) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setProfileImage(reader.result);
-        // Save updated profile image to localStorage
-        localStorage.setItem("profileImage", reader.result);
-      }
-    };
-    reader.readAsDataURL(e.target.files[0]);
+
+  const handleImageUploadSuccess = (result) => {
+    console.log('Image upload successful:', result);
+    setProfileImage(result.secure_url);
+    localStorage.setItem('profileImage', result.secure_url);
   };
+
+  const handleImageUploadError = (error) => {
+    console.error('Image upload error:', error);
+    alert('Error uploading image. Please try again.');
+  };
+
   return (
     <div className="profile-card-container">
       <div className="profile-card">
         <div className="profile-image">
-          <img src={profileImage} alt="profile pic" />
-          <label htmlFor="image-upload">
-            Change Profile Image
-            <input
-              id="image-upload"
-              type="file"
-              onChange={handleImageChange}
-              accept="image/*"
-            />
-          </label>
+          <Image
+            cloudName="dtg2cthkk"
+            uploadPreset="idrisnoor"
+            onSuccess={handleImageUploadSuccess}
+            onError={handleImageUploadError}
+          >
+            <img src={profileImage} alt="profile pic" />
+            <label htmlFor="image-upload">
+              Change Profile Image
+              <input
+                id="image-upload"
+                type="file"
+                accept="image/*"
+              />
+            </label>
+            <Transformation width="200" height="200" crop="fill" radius="max" />
+          </Image>
         </div>
         <div className="profile-info">
           <h2>{initialUsername}</h2>
@@ -82,6 +94,7 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
               value={newEmail}
               onChange={handleEmailChange}
             />
+            <ImageUpload />
             <button type="submit">Change Email</button>
           </form>
         </div>
@@ -89,4 +102,5 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
     </div>
   );
 };
+
 export default UserProfile;
