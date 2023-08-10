@@ -60,7 +60,7 @@ const LogInPage = () => {
             Don't have an account? <Link to="/signup">Sign up</Link>
           </p>
           <p>
-            Forgot your password? <Link to="/reset-password">Reset Password</Link>
+            Forgot your password? <Link to="/resetpassword">Reset Password</Link>
           </p>
         </div>
         <div className="image-container">
