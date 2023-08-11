@@ -15,6 +15,7 @@ import NavBar from "./components/footer and header/navigation/NavBar";
 import Footer from "./components/footer and header/Footer";
 import Checkout from "./components/productslist/cart/checkout/Checkout";
 import MyDashboard from "./pages/MyDashboard";
+import UserProfile from './components/UserProfile/UserProfile';
 // import { useUser } from './contexts/UserContext';
 
 const App = () => {
@@ -145,6 +146,7 @@ const App = () => {
 
       <Footer />
     </>
+
   );
 };
 export default App;
