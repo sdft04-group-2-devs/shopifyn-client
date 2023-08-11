@@ -80,7 +80,7 @@ const App = () => {
   };
 
 
-  console.log(userId);
+  console.log('userId:', currentUser);
   const renderNavBar = !['/signup', '/login', '/reset-password'].includes(window.location.pathname);
 
   return (

@@ -8,6 +8,8 @@ import NavBar from '../../components/footer and header/navigation/NavBar';
 const LandingPage = ({showCart, handleSearch, handleCartClick,products, isAuthenticated, setCurrentUser, currentUser}) => {
     const navigate = useNavigate()
 
+    console.log('current user:',currentUser);
+
     const handleExploreProductsClick = () => {
         navigate('/products'); // Navigate to the 'products' page when the button is clicked
       };
