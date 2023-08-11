@@ -7,9 +7,9 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { IconButton } from "@mui/material";
 import { PlusIcon, StarIcon } from "@heroicons/react/24/outline";
 import { RadioGroup } from "@headlessui/react";
-import { useAuth } from "../../../contexts/AuthContext";
+// import { useAuth } from "../../../contexts/AuthContext";
 
-const ProductView = () => {
+const ProductView = ({currentUser, setCurrentUser}) => {
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
@@ -18,11 +18,12 @@ const ProductView = () => {
   const [ratings, setRatings] = useState([]);
   const params = useParams();
   const navigate = useNavigate()
-  const { authToken } = useAuth()
+  let itemIds = []
+  // const { authToken } = useAuth()
 
-  console.log('authToken:',authToken);
+  // console.log('authToken:',authToken);
 
-  console.log(params);
+  console.log(currentUser);
 
   useEffect(() => {
     fetch(`http://localhost:3000/products/${params.id}`)
@@ -51,28 +52,7 @@ const ProductView = () => {
   };
 
   const handleAddToCartClick = async () => {
-    
-    try {
-      const response = await fetch('http://localhost:3000/cart_items', {
-        method: "Post",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`,
-        },
-        body: JSON.stringify({
-          product_id: product.id, // Assuming you have a unique ID for products
-          quantity: quantity,
-        }),
-      });
-      if (response.ok) {
-        console.log(`Adding ${quantity} product(s) to cart...`);
-      } else {
-        console.error('Error:', response.status);
-      }
-      
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    alert('Add to cart clicked')
   };
 
   const handleSubmitRating = () => {
@@ -90,7 +70,6 @@ const ProductView = () => {
 
   return (
     <>
-      <NavBar />
       <div className="product-view-container">
         <div className="product-view-image-gallery">
           <div className="product-view-main-image">
@@ -194,7 +173,6 @@ const ProductView = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
