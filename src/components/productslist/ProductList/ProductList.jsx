@@ -66,7 +66,7 @@ const handleSearch = (event) => {
       </div>
       <section className="product-list">
         {filteredProducts.map((product, index) => (
-          <ProductCard key={index} {...product} />
+          <ProductCard handleCartClick={handleCartClick} key={index} {...product} />
         ))}
       </section>
       {

@@ -184,7 +184,7 @@ const ProductView = ({currentUser, setCurrentUser}) => {
             )}
           </div>
           <div className="ratings-section">
-            <li className="comments-section">
+            <li key={product.id} className="comments-section">
               {ratings.length > 0 ? (
                 ratings.map((rating) => (
                   <div className="comment" key={rating.id}>

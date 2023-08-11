@@ -55,3 +55,10 @@
     border-radius: 5px;
     padding: 0.5rem;
 }
+
+.logout_header__button {
+    color: white;
+    background: #003d29;
+    padding: 8px;
+    border-radius: 10px;
+}
