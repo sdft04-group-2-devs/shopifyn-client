@@ -51,7 +51,7 @@ const ProductCard = ({ id, name, image_url_1, price, rating, handleCartClick }) 
           {renderStars()} 
         </div>
       </div>
-      <button className="add-to-cart-button" onClick={addToCart}>Add to Cart</button>
+      <button className="product-card-add-to-cart-button" onClick={addToCart}>Add to Cart</button>
     </div>
   );
 };

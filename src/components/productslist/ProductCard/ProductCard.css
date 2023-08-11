@@ -89,7 +89,7 @@
   transform: scale(1.6);
 }
 
-.add-to-cart-button {
+.product-card-add-to-cart-button {
   margin: 8px;
   color: #000000;
   background-color: #ffffff;
@@ -106,7 +106,7 @@
   transition: transform 0.1s ease; 
 }
 
-.add-to-cart-button:hover {
+.product-card-add-to-cart-button:hover {
   background: #024216;
   color: #ffffff;
 }

@@ -105,7 +105,7 @@ const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClic
             <Link to={'/'}>Home</Link>
             <Link to={'/products'}>Products</Link>
             {
-              userRole === 'Seller' ? <Link>Dashboard</Link> : null
+              userRole === 'Seller' ? <Link to={'/seller/dashboard'}>Dashboard</Link> : null
             }
             <Link>About Us</Link>
             <Link>Contact Us</Link>
