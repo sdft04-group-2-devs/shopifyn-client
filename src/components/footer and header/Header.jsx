@@ -1,3 +1,4 @@
+
 // import { Chip } from "@mui/material";
 // import React from "react";
 // import './Header.css';
@@ -26,6 +27,7 @@
 // //   </div>
 // //   );
 // // };
+
 
 // // export default Header;
 // const Header = ({ setFilteredProducts, products }) => {
