@@ -7,7 +7,7 @@ import Footer from '../../footer and header/Footer';
 import Cart from '../cart/Cart';
 
 
-const ProductList = ({showCart ,handleSearch,products, isAuthenticated, setCurrentUser, currentUser}) => {
+const ProductList = ({showCart ,products, isAuthenticated, setCurrentUser, currentUser}) => {
   // const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([...products]);
   // const [showCart, setShowCart] = useState(false);
@@ -66,7 +66,7 @@ const handleSearch = (event) => {
       </div>
       <section className="product-list">
         {filteredProducts.map((product, index) => (
-          <ProductCard key={index} {...product} />
+          <ProductCard handleCartClick={handleCartClick} key={index} {...product} />
         ))}
       </section>
       {

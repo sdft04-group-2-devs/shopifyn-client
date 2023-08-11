@@ -1,54 +1,56 @@
-import { Badge, IconButton } from "@mui/material";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PersonIcon from '@mui/icons-material/Person';
-import styled from '@emotion/styled';
-import React from "react";
-import { Link } from "react-router-dom";
-import './NavBar.css'
-import Logo from '../../../../public/shopyfyn.png'
+import { Avatar, Badge, IconButton } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonIcon from "@mui/icons-material/Person";
+import styled from "@emotion/styled";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./NavBar.css";
+import Logo from "../../../../public/shopyfyn.png";
 
-
-const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClick}) => {
+const NavBar = ({
+  userRole,
+  currentUser,
+  setCurrentUser,
+  onSearch,
+  handleCartClick,
+}) => {
   const [showCart, setShowCart] = useState(false);
-  const [searchItem, setSearchItem] = useState('')
-  const navigate = useNavigate()
+  const [searchItem, setSearchItem] = useState("");
+  const navigate = useNavigate();
   console.log(userRole);
 
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      right: -3,
+      top: 13,
+      // border: `2px solid ${theme.palette.background.paper}`,
+      padding: "0 4px",
+    },
+  }));
 
-    const StyledBadge = styled(Badge)(({ theme }) => ({
-        '& .MuiBadge-badge': {
-          right: -3,
-          top: 13,
-          // border: `2px solid ${theme.palette.background.paper}`,
-          padding: '0 4px',
-        },
-      }));
+  const handleLogout = () => {
+    fetch("http://localhost:3000/logout", {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.ok) {
+          setCurrentUser(null);
+          sessionStorage.removeItem("user");
+          alert("Logged out successfully");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
-      const handleLogout = () => {
-        fetch("http://localhost:3000/logout", {
-          method: "DELETE",
-        })
-          .then((response) => {
-            if (response.ok) {
-              setCurrentUser(null);
-              sessionStorage.removeItem('user')
-              alert('Logged out successfully')
-            }
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value;
+    setSearchItem(searchTerm);
+    onSearch(searchTerm);
+  };
 
-      
-      };
-
-      const handleSearch = (e) => {
-        const searchTerm = e.target.value;
-        setSearchItem(searchTerm)
-        onSearch(searchTerm)
-      }
-
-      console.log(currentUser);
+  console.log(currentUser);
 
   return (
     <div className="nav-container">
@@ -101,11 +103,11 @@ const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClic
       <div className="nav-container-nav">
         <div className="nav-container-navbar-menu">
           <ul className="nav-container-navbar-menu">
-            <Link to={'/'}>Home</Link>
-            <Link to={'/products'}>Products</Link>
-            {
-              userRole === 'Seller' ? <Link to={'/seller/dashboard'}>Dashboard</Link> : null
-            }
+            <Link to={"/"}>Home</Link>
+            <Link to={"/products"}>Products</Link>
+            {userRole === "Seller" ? (
+              <Link to={"/seller/dashboard"}>Dashboard</Link>
+            ) : null}
             <Link>About Us</Link>
             <Link>Contact Us</Link>
           </ul>
@@ -113,13 +115,23 @@ const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClic
 
         {/* <input type="search" className="nav-container-navbar-search" placeholder="search" /> */}
 
-        <ShoppingCartIcon className="nav-container-navbar-cart" />
+        <button
+          onClick={() => {
+            navigate("/cart");
+          }}
+        >
+          <ShoppingCartIcon className="nav-container-navbar-cart" />
+        </button>
 
-        <Link to={'/user-profile'}><PersonIcon className="nav-container-navbar-user" /></Link>
+        <Avatar alt={currentUser.user.username} src="/static/images/avatar/1.jpg" />
         {currentUser ? (
           <>
-            <p id='welcome_text'>Hello, {currentUser.user.username}</p>
-            <button className="header__button" onClick={handleLogout} style={{ marginRight: '20px' }}>
+            <p id="welcome_text">Hello, {currentUser.user.username}</p>
+            <button
+              className="logout_header__button"
+              onClick={handleLogout}
+              style={{ marginRight: "20px" }}
+            >
               Logout
             </button>
           </>
@@ -129,7 +141,6 @@ const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClic
           </Link>
         )}
       </div>
-
     </div>
   );
 };

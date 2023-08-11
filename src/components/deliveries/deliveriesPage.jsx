@@ -152,7 +152,6 @@ const DeliveriesPage = () => {
         </div>
       </div>
     </div>
-    <Footer />
     </>
   );
 };

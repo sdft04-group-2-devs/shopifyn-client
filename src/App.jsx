@@ -16,6 +16,7 @@ import Footer from "./components/footer and header/Footer";
 import Checkout from "./components/productslist/cart/checkout/Checkout";
 import MyDashboard from "./pages/MyDashboard";
 import UserProfile from './components/UserProfile/UserProfile';
+import ProductUploadForm from "./pages/ProductUploadForm";
 // import { useUser } from './contexts/UserContext';
 
 const App = () => {
@@ -80,7 +81,7 @@ const App = () => {
 
 
   console.log(userId);
-  const renderNavBar = !['/signup', '/login'].includes(window.location.pathname);
+  const renderNavBar = !['/signup', '/login', '/reset-password'].includes(window.location.pathname);
 
   return (
     <>
@@ -98,6 +99,7 @@ const App = () => {
       <Routes>
         <Route exact path="/signup" element={<SignUpPage />} />
         <Route exact path="/login" element={<LogInPage />} />
+        {/* <Route exact path="/reset-password" element={<} /> */}
 
         <Route
           exact
@@ -139,6 +141,7 @@ const App = () => {
 
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/seller/dashboard" element={<MyDashboard />} />
+        <Route path="/seller/dashboard/product-upload" element={<ProductUploadForm />} />
         {/* ...other routes go here */}
       </Routes>
 
