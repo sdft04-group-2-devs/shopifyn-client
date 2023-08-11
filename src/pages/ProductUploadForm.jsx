@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './ProductUploadForm.css';
 import NavBar from '../components/footer and header/navigation/NavBar';
 import Footer from '../components/footer and header/Footer';
+import { useNavigate } from 'react-router-dom';
 
 // const ProductUploadForm = ({ onUpload }) => {
 //   const [productName, setProductName] = useState('');
@@ -15,18 +16,7 @@ import Footer from '../components/footer and header/Footer';
 //     setProductImages(selectedImages);
 //   };
 
-  const handleUpload = () => {
-    if (productName && productDescription && productPrice && productImages.length > 0) {
-      // send the data to our backend server
-      setUploadSuccess(true);
-      let set = {
-        name: productName,
-        description: productDescription,
-        price: productPrice,
-        images: productImages,
-      };
-    }
-    }
+  
 
 //       //fetch 
 
@@ -41,6 +31,21 @@ import Footer from '../components/footer and header/Footer';
 //   };
 
 const  ProductUploadForm = () => {
+  const navigate = useNavigate()
+
+  const handleUpload = () => {
+    if (productName && productDescription && productPrice && productImages.length > 0) {
+      // send the data to our backend server
+      setUploadSuccess(true);
+      let set = {
+        name: productName,
+        description: productDescription,
+        price: productPrice,
+        images: productImages,
+      };
+    }
+    }
+
   function handleSubmit(event){
       event.preventDefault()
 
@@ -82,10 +87,10 @@ const  ProductUploadForm = () => {
     <>
      <div>
       <div>
-      <button onClick={() => window.location.href = '/'} class="header-button">Back to Home</button>
-      <button onClick={() => window.location.href = '/products'} class="header-button">Products</button>
-      <div class="dropdown">
-        <button class="Categories-button">Categories</button>
+      <button onClick={() => navigate('/')} className="header-button">Back to Home</button>
+      <button onClick={() => navigate('/products')} className="header-button">Products</button>
+      <div className="dropdown">
+        <button className="Categories-button">Categories</button>
         <div class="dropdown-content">
           <a href="/category/phones">Phones</a>
           <a href="/category/laptops">Laptops</a>
@@ -93,7 +98,6 @@ const  ProductUploadForm = () => {
           <a href="/category/desktops">Desktops</a>
         </div>
     </div>
-    <button onClick={() => window.location.href = '/signup'} class="header-button">Log Out</button>
   </div>
   <div>
     {/* <div className="product-upload-card">
@@ -140,7 +144,7 @@ const  ProductUploadForm = () => {
           <input className='input' required type='text' placeholder='Image_url_3' />
 
           <button onClick={handleUpload} className="product-upload-button">Upload</button>
-          <button onClick={() => window.location.href = '/my-dashboard'} className="go-to-dashboard-button">Go to dashboard</button>
+          <button onClick={() => navigate('/seller/dashboard')} className="go-to-dashboard-button">Go to dashboard</button>
 
       </form>
       </div>

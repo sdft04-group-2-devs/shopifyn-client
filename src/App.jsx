@@ -83,7 +83,7 @@ const App = () => {
   // }
 
   console.log(userId);
-  const renderNavBar = !['/signup', '/login'].includes(window.location.pathname);
+  const renderNavBar = !['/signup', '/login', '/reset-password'].includes(window.location.pathname);
 
   return (
     <>
@@ -101,6 +101,7 @@ const App = () => {
       <Routes>
         <Route exact path="/signup" element={<SignUpPage />} />
         <Route exact path="/login" element={<LogInPage />} />
+        {/* <Route exact path="/reset-password" element={<} /> */}
 
         <Route
           exact
