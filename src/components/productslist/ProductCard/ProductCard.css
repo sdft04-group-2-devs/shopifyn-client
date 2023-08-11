@@ -90,11 +90,12 @@
 }
 
 .add-to-cart-button {
-  margin-top: auto;
+  margin: 8px;
   color: #000000;
   background-color: #ffffff;
   padding: 10px 20px;
   border-color: #000000;
+  border-radius: 20px;
   position: absolute;
   bottom: 0%;
   right: 0%;

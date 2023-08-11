@@ -4,12 +4,16 @@ import './ProductCard.css';
 import { Link } from 'react-router-dom';
 
 
-const ProductCard = ({ id, name, image_url_1, price, rating }) => {
+const ProductCard = ({ id, name, image_url_1, price, rating, handleCartClick }) => {
   const [liked, setLiked] = useState(false);
 
   const toggleLike = () => {
     setLiked(!liked);
     console.log(liked);
+  };
+
+  const addToCart = () => {
+    handleCartClick(id);
   };
 
   const renderStars = () => {
@@ -47,7 +51,7 @@ const ProductCard = ({ id, name, image_url_1, price, rating }) => {
           {renderStars()} 
         </div>
       </div>
-      <button className="add-to-cart-button">Add to Cart</button>
+      <button className="add-to-cart-button" onClick={addToCart}>Add to Cart</button>
     </div>
   );
 };

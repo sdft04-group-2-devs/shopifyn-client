@@ -13,6 +13,7 @@ import { ProductsContext } from "./contexts/ProductsContext";
 import Cart from "./components/productslist/cart/Cart";
 import NavBar from "./components/footer and header/navigation/NavBar";
 import Footer from "./components/footer and header/Footer";
+import Checkout from "./components/productslist/cart/checkout/Checkout";
 // import { useUser } from './contexts/UserContext';
 
 const App = () => {
@@ -117,7 +118,7 @@ const App = () => {
           path="/products/:id"
           element={
             <ProductView
-              currentUser={currentUser}
+              currentUser={userId}
               setCurrentUser={setCurrentUser}
             />
           }
@@ -141,6 +142,8 @@ const App = () => {
             />
           }
         />
+
+        <Route path="/checkout" element={<Checkout />} />
         {/* ...other routes go here */}
       </Routes>
 
@@ -149,3 +152,5 @@ const App = () => {
   );
 };
 export default App;
+
+
