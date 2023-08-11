@@ -1,21 +1,16 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import './UserProfile.css';
-// eslint-disable-next-line react/prop-types
-const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeUsername }) => {
+const UserProfile = ({ userId, email: initialEmail, username: initialUsername, onChangeUsername }) => {
   const [email, setEmail] = useState(initialEmail);
-  const [profileImage, setProfileImage] = useState(
-    "https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg"
-  );
+  const [profileImage, setProfileImage] = useState("https://t4.ftcdn.net/jpg/03/46/93/61/360_F_346936114_RaxE6OQogebgAWTalE1myseY1Hbb5qPM.jpg");
   const [newEmail, setNewEmail] = useState("");
   const [newUsername, setNewUsername] = useState("");
   useEffect(() => {
-    // Retrieve saved email from localStorage on page load
     const savedEmail = localStorage.getItem("email");
     if (savedEmail) {
       setEmail(savedEmail);
     }
-    // Retrieve saved profile image from localStorage on page load
     const savedProfileImage = localStorage.getItem("profileImage");
     if (savedProfileImage) {
       setProfileImage(savedProfileImage);
@@ -28,8 +23,21 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
     e.preventDefault();
     setEmail(newEmail);
     setNewEmail("");
-    // Save updated email to localStorage
     localStorage.setItem("email", newEmail);
+    fetch(`http://localhost:3000/users/${userId}/email`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email: newEmail }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setEmail(data.email);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
   const handleUsernameChange = (e) => {
     setNewUsername(e.target.value);
@@ -38,13 +46,26 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
     e.preventDefault();
     onChangeUsername(newUsername);
     setNewUsername("");
+    fetch(`http://localhost:3000/users/${userId}/username`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username: newUsername }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setNewUsername(data.username);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
   const handleImageChange = (e) => {
     const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
         setProfileImage(reader.result);
-        // Save updated profile image to localStorage
         localStorage.setItem("profileImage", reader.result);
       }
     };
