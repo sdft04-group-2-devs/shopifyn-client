@@ -7,7 +7,6 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { IconButton } from "@mui/material";
 import { PlusIcon, StarIcon } from "@heroicons/react/24/outline";
 import { RadioGroup } from "@headlessui/react";
-// import { useAuth } from "../../../contexts/AuthContext";
 
 const ProductView = ({currentUser, setCurrentUser}) => {
   const [quantity, setQuantity] = useState(1);
@@ -18,12 +17,8 @@ const ProductView = ({currentUser, setCurrentUser}) => {
   const [ratings, setRatings] = useState([]);
   const params = useParams();
   const navigate = useNavigate()
-  let itemIds = []
-  // const { authToken } = useAuth()
 
-  // console.log('authToken:',authToken);
 
-  console.log(currentUser);
 
   useEffect(() => {
     fetch(`http://localhost:3000/products/${params.id}`)

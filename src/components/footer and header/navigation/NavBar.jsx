@@ -13,7 +13,6 @@ const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClic
   const [searchItem, setSearchItem] = useState('')
   const navigate = useNavigate()
   console.log(userRole);
-  
 
 
     const StyledBadge = styled(Badge)(({ theme }) => ({
