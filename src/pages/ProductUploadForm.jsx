@@ -3,42 +3,86 @@ import './ProductUploadForm.css';
 import NavBar from '../components/footer and header/navigation/NavBar';
 import Footer from '../components/footer and header/Footer';
 
-const ProductUploadForm = ({ onUpload }) => {
-  const [productName, setProductName] = useState('');
-  const [productDescription, setProductDescription] = useState('');
-  const [productPrice, setProductPrice] = useState('');
-  const [productImages, setProductImages] = useState([]);
-  const [uploadSuccess, setUploadSuccess] = useState(false);
+// const ProductUploadForm = ({ onUpload }) => {
+//   const [productName, setProductName] = useState('');
+//   const [productDescription, setProductDescription] = useState('');
+//   const [productPrice, setProductPrice] = useState('');
+//   const [productImages, setProductImages] = useState([]);
+//   const [uploadSuccess, setUploadSuccess] = useState(false);
 
-  const handleImageChange = (event) => {
-    const selectedImages = Array.from(event.target.files);
-    setProductImages(selectedImages);
-  };
+//   const handleImageChange = (event) => {
+//     const selectedImages = Array.from(event.target.files);
+//     setProductImages(selectedImages);
+//   };
 
   const handleUpload = () => {
     if (productName && productDescription && productPrice && productImages.length > 0) {
       // send the data to our backend server
       setUploadSuccess(true);
-      onUpload({
+      let set = {
         name: productName,
         description: productDescription,
         price: productPrice,
         images: productImages,
-      });
-      
-      setProductName('');
-      setProductDescription('');
-      setProductPrice('');
-      setProductImages([]);
-
+      };
     }
-  };
+    }
+
+//       //fetch 
+
+//       console.log(set)
+      
+//       setProductName('');
+//       setProductDescription('');
+//       setProductPrice('');
+//       setProductImages([]);
+
+//     }
+//   };
+
+const  ProductUploadForm = () => {
+  function handleSubmit(event){
+      event.preventDefault()
+
+      const name = event.target[0].value
+      const price = event.target[1].value
+      const description = event.target[2].value
+      const brand = event.target[3].value
+      const stock_quantity = event.target[4].value
+      const category = event.target[5].value
+      const image_url_1 = event.target[6].value
+      const image_url_2 = event.target[7].value
+      const image_url_3 = event.target[8].value
+      
+
+   fetch("http://[::1]:3000/products", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+          name: name,
+          price: price,
+          description: description,
+          brand: brand,
+          stock_quantity: stock_quantity,
+          category: category,
+          image_url_1:image_url_1,
+          image_url_2:image_url_2,
+          image_url_3:image_url_3
+
+      })
+   })
+   event.target.reset()
+     
+  }
+  
 
   return (
     <>
     <NavBar/>
      <div>
-  <div>
+      <div>
       <button onClick={() => window.location.href = '/'} class="header-button">Back to Home</button>
       <button onClick={() => window.location.href = '/products'} class="header-button">Products</button>
       <div class="dropdown">
@@ -52,7 +96,8 @@ const ProductUploadForm = ({ onUpload }) => {
     </div>
     <button onClick={() => window.location.href = '/signup'} class="header-button">Log Out</button>
   </div>
-    <div className="product-upload-card">
+  <div>
+    {/* <div className="product-upload-card">
       <h3 className="product-upload-heading">Upload Product</h3>
       <label for="product-name">Product Name:</label>
       <input
@@ -74,15 +119,38 @@ const ProductUploadForm = ({ onUpload }) => {
         onChange={(e) => setProductPrice(e.target.value)}
         className="product-price-input"
       />
-      <input type="file" multiple onChange={handleImageChange} className="product-image-upload" />
+      <input
+       type="text" 
+       placeholder='Image url'
+       multiple onChange={handleImageChange} 
+       className="product-image-upload" 
+       />
       <button onClick={handleUpload} className="product-upload-button">Upload</button>
       {uploadSuccess && <p className="upload-success">Upload successful!</p>}
       <button onClick={() => window.location.href = '/my-dashboard'} className="go-to-dashboard-button">Go to dashboard</button>
+    </div> */}
+    <div className="product-upload-card">
+    <form className="add-product-form" onSubmit={handleSubmit}>
+          <input className='input' required type='text' placeholder='Name' />
+          <input className='input' required type='number' placeholder='Price' />
+          <input className='input' required type='text' placeholder='Description' />
+          <input className='input' required type='text' placeholder='Brand' />
+          <input className='input' required type='number' placeholder='Stock_quantity' />
+          <input className='input' required type='text' placeholder='Image_url_1' />
+          <input className='input' required type='text' placeholder='Image_url_2' />
+          <input className='input' required type='text' placeholder='Image_url_3' />
+
+          <button onClick={handleUpload} className="product-upload-button">Upload</button>
+          <button onClick={() => window.location.href = '/my-dashboard'} className="go-to-dashboard-button">Go to dashboard</button>
+
+      </form>
+      </div>
     </div>
   </div>
   <Footer/>
   </>
 );
+  
 }
 
 export default ProductUploadForm;
