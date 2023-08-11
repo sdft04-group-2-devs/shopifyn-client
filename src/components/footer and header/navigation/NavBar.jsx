@@ -116,7 +116,7 @@ const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClic
 
         <button onClick={handleCartClick}><ShoppingCartIcon className="nav-container-navbar-cart" /></button>
 
-        <PersonIcon className="nav-container-navbar-user" />
+        <Link to={'/user-profile'}><PersonIcon className="nav-container-navbar-user" /></Link>
         {currentUser ? (
           <>
             <p id='welcome_text'>Hello, {currentUser.user.username}</p>
