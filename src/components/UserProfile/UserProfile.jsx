@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './UserProfile.css';
 import { Image, Transformation } from 'cloudinary-react';
 import Axios from 'axios';
-import ImageUpload from '../../ImageUpload';
-
+import ImageUpload from '../../ImageUpload'
 const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeUsername }) => {
   const [email, setEmail] = useState(initialEmail);
   const [profileImage, setProfileImage] = useState(
@@ -43,18 +42,41 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
     onChangeUsername(newUsername);
     setNewUsername("");
   };
-
   const handleImageUploadSuccess = (result) => {
     console.log('Image upload successful:', result);
     setProfileImage(result.secure_url);
     localStorage.setItem('profileImage', result.secure_url);
   };
-
   const handleImageUploadError = (error) => {
     console.error('Image upload error:', error);
     alert('Error uploading image. Please try again.');
   };
-
+  const [img, setImg] = useState([]);
+  const [url, setUrl] = useState('');
+  const handleUpload = (e) => {
+    let file = e.target.files[0];
+    let form = new FormData();
+    form.append('file', file);
+    form.append('upload_preset', 'testCase');
+    console.log("file:", form);
+    setImg(form);
+  }
+  function uploadImg() {
+    const cloudName = "dtg2cthkk"; 
+    fetch(`https://api.cloudinary.com/v1_1/dtg2cthkk/image/upload`, {
+      method: 'POST',
+      body: img
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log("handleUpload -> data:", data);
+      setUrl(data.secure_url);
+      return data.url;
+    })
+    .catch(error => {
+      console.error("Error uploading image:", error);
+    });
+  }
   return (
     <div className="profile-card-container">
       <div className="profile-card">
@@ -94,7 +116,10 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
               value={newEmail}
               onChange={handleEmailChange}
             />
-            <ImageUpload />
+            <input type="file" onChange={handleUpload} />
+      <button onClick={uploadImg}>Upload</button>
+            {/* <ImageUpload/> */}
+            {/* <input type="file" name="" id="" /> */}
             <button type="submit">Change Email</button>
           </form>
         </div>
@@ -102,5 +127,4 @@ const UserProfile = ({ email: initialEmail, username: initialUsername, onChangeU
     </div>
   );
 };
-
 export default UserProfile;

@@ -10,7 +10,7 @@ import ProductList from './components/productslist/ProductList/ProductList';
 import DeliveriesPage from './components/deliveries/deliveriesPage';
 import UpdateProfile from './pages/profile/UpdateProfile';
 import { UserContext } from './contexts/UserContext';
-
+import UserProfile from './components/UserProfile/UserProfile';
 
 const App = () => {
   // const {user} = useContext(UserContext)
@@ -21,7 +21,7 @@ const App = () => {
         <Route exact path="/signup" element={<SignUpPage/>} />
         <Route exact path="/login" element={<LogInPage/>} />
         <Route exact path="/products" element={<ProductList/>}/>
-        <Route exact path='/user-profile' element= {<UpdateProfile />} />
+        <Route exact path='/user-profile' element= {<UserProfile />} />
         <Route exact path='/deliveries' element= {<DeliveriesPage />} />
         <Route exact path='/products/:id' element= {<ProductView />} />
         <Route path='/' element= {<LandingPage />} />
