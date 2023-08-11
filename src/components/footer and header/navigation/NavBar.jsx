@@ -78,7 +78,7 @@ const NavBar = () => {
           </ul>
         </div>
 
-        <input type="search" className="nav-container-navbar-search" placeholder="search" />
+        {/* <input type="search" className="nav-container-navbar-search" placeholder="search" /> */}
 
         <ShoppingCartIcon className="nav-container-navbar-cart" />
 

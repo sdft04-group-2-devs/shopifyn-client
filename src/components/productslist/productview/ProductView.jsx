@@ -42,13 +42,17 @@ const ProductView = ({currentUser, setCurrentUser}) => {
       });
   }, []);
 
-  const handleQuantityChange = (value) => {
-    const newQuantity = Math.max(1, Math.min(quantity + value, 100));
-    setQuantity(newQuantity);
+  const handleQuantityChange = (action) => {
+    if (action === '+') {
+      setQuantity(quantity + 1);
+    } else if (action === '-' && quantity > 1) {
+      setQuantity(quantity - 1);
+    }
   };
+  const total = product.price * quantity;
 
   const handleBuyNowClick = () => {
-    navigate('/deliveries', {state: {product}})
+    navigate('/deliveries', {state: {product, quantity}})
   };
 
   const handleAddToCartClick = async () => {
@@ -145,8 +149,16 @@ const ProductView = ({currentUser, setCurrentUser}) => {
           <div className="product-view-quantity-setting">
             <h3>Quantity:</h3>
             <div className="product-view-add-or-reduce-quantity">
-              <button className="product-view-add-btn">-</button>
+            <button
+                onClick={() => {
+                  handleQuantityChange('-');
+                }}
+        className="product-view-reduce-btn"
+      >
+        -
+      </button>
               <h5>{quantity}</h5>
+              
               <button
                 onClick={() => {
                   handleQuantityChange('+')
@@ -155,11 +167,17 @@ const ProductView = ({currentUser, setCurrentUser}) => {
               >
                 +
               </button>
+      
+
             </div>
           </div>
           <h3 className="product-view-product-price">
             Price: Ksh. {product.price}
           </h3>
+          <h4 className="product-view-total-price">
+            Total Price: Ksh. {total}
+          </h4>
+
           <div className="product-view-buttons">
             <button onClick={handleBuyNowClick} className="product-view-buy-now-btn">Buy Now</button>
             <button onClick={handleAddToCartClick} className="product-view-add-to-cart-btn">
@@ -181,8 +199,10 @@ const ProductView = ({currentUser, setCurrentUser}) => {
         )}
 
         <div className="ratings-container">
-          <div id="star-rating-average">
-            Average Rating:{" "}
+          <div className="star-rating-average">
+            Average Rating:
+            <span>{" "}</span>
+          
             {ratings.length > 0 ? (
               calculateAverageRating()
             ) : (
@@ -228,8 +248,9 @@ const ProductView = ({currentUser, setCurrentUser}) => {
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="Write your comment..."
               />
+              <button onClick={handleSubmitRating}>Add comment</button>
             </div>
-            <button onClick={handleSubmitRating}>Add comment</button>
+            
           </div>
         </div>
       </div>

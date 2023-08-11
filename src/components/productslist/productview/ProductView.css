@@ -132,6 +132,14 @@
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  
+}
+.star-rating-average{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 60px;
+  font-weight: bold;
 }
 
 .ratings-section {
@@ -140,12 +148,24 @@
   margin: 0;
 }
 
-#star-rating-average {
+.star-rating-average {
   font-weight: bold;
+  font-size: 30px;
 }
 
 .comments-section {
   list-style-type: none;
+}
+
+.comment-section button{
+  background-color: #003d29;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
 }
 
 .comment {
@@ -191,8 +211,15 @@
   margin: 0;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #555;
+  color:black;
   margin-bottom: 0.5rem;
+}
+
+.add-rating-comment{
+  margin-top: 10px;
+  justify-content: space-between;
+  margin-left: 60px;
+  
 }
 
 #star-rating-average {

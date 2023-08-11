@@ -10,7 +10,7 @@ import Footer from "../footer and header/Footer";
 const DeliveriesPage = () => {
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
   const location = useLocation()
-  const {product} = location.state || {}
+  const {product,quantity} = location.state || {}
   console.log(product);
 
   const [activeStep, setActiveStep] = useState(1);
@@ -27,6 +27,7 @@ const DeliveriesPage = () => {
   const toggleDetails = () => {
     setIsDetailsExpanded((prevState) => !prevState);
   };
+
 
   const steps = [
     {
@@ -65,6 +66,7 @@ const DeliveriesPage = () => {
   ));
 
   const width = `${(100 / (totalSteps - 1)) * (activeStep - 1)}%`;
+  const total = product.price * quantity;
 
   return (
     <>
@@ -100,12 +102,12 @@ const DeliveriesPage = () => {
           <div className="deliveries-page-quantity-setting">
             <h3>Quantity:</h3>
             <div className="deliveries-page-add-or-reduce-quantity">
-              <button>-</button>
-              <h5>1</h5>
-              <button>+</button>
+              {/* <button>-</button> */}
+              <h5>{quantity}</h5>
+              {/* <button>+</button> */}
             </div>
           </div>
-          <h3 className="deliveries-page-product-price">Price: Ksh. {product.price}</h3>
+          <h3 className="deliveries-page-product-price">Price: Ksh. {total}</h3>
           <button className="deliveries-page-details-toggle" onClick={toggleDetails}>
             {isDetailsExpanded ? "Hide Details" : "More Details"}
           </button>
