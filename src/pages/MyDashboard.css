@@ -1,0 +1,142 @@
+.dashboard-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #105a14;
+  padding: 1px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 55px;
+  align-items: center;
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+  height: 90%;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.dashboard-product-name{
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  margin-right: 50%;
+  font-weight: bold;
+}
+
+.dashboard-product-description {
+  margin: 10px 0;
+  color: #000000;
+}
+
+.dshboard-product-price {
+  margin-right: 65%;
+}
+
+.product-card button {
+  background-color: #0d5711;
+  color: #fff;
+  border: rgb(14, 78, 12);
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 11%;
+  margin-left: 50%;
+
+}
+
+.product-card button:hover {
+  background-color: #ffffff;
+  transform: scale(1.05);
+  color: #0d5711;
+  border: #0d5711;
+}
+
+.product-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.dashboard-header-button, .dashboard-Categories-button {
+  background-color: #0d4c0e;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 60px;
+  margin-left: 200px;
+  margin-right: 1px; 
+  margin-bottom: 0px;
+}
+
+.dashboard-header-button:hover, .dashboard-Categories-button:hover {
+  background-color: #f8f8f8;
+  color: #003d29;
+  border: 2px solid #003d29;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.img-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fbf0e4;
+  border-radius: 4%;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-bottom: 2%;
+}
+
+.best-selling-image{
+  width: 800px;
+  height: 200px;
+}
+
+.best-selling-image img{
+  width: 300px;
+  height: 200px;
+  margin-left: 2%;
+}
+
+h1 {
+  text-align: center;
+  white-space: nowrap;
+  margin-left: 13%;
+}
+
+
+
+
+
+
+
