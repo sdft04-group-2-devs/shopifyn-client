@@ -28,7 +28,18 @@
   background-color: rgb(9, 62, 9);
  }
 
- 
+ .search-bar {
+  margin-left: 30%;
+ }
+
+ .products-search-container {
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 23px;
+  margin-top: 20px;
+  width: 60%;
+ }
 
 
 

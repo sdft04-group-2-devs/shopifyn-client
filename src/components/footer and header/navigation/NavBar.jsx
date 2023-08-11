@@ -112,7 +112,7 @@ const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClic
           </ul>
         </div>
 
-        <input type="search" className="nav-container-navbar-search" placeholder="search" />
+        {/* <input type="search" className="nav-container-navbar-search" placeholder="search" /> */}
 
         <button onClick={handleCartClick}><ShoppingCartIcon className="nav-container-navbar-cart" /></button>
 
