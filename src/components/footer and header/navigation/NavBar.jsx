@@ -122,8 +122,11 @@ const NavBar = ({
         >
           <ShoppingCartIcon className="nav-container-navbar-cart" />
         </button>
+        {
+          currentUser ? (<Avatar alt={currentUser.user.username} src="/static/images/avatar/1.jpg" />) : <Avatar alt='Null' src="/static/images/avatar/1.jpg" />
+        }
 
-        <Avatar alt={currentUser.user.username} src="/static/images/avatar/1.jpg" />
+        
         {currentUser ? (
           <>
             <p id="welcome_text">Hello, {currentUser.user.username}</p>
