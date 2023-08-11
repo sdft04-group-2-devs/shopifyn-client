@@ -80,7 +80,6 @@ const  ProductUploadForm = () => {
 
   return (
     <>
-    <NavBar/>
      <div>
       <div>
       <button onClick={() => window.location.href = '/'} class="header-button">Back to Home</button>
@@ -147,7 +146,6 @@ const  ProductUploadForm = () => {
       </div>
     </div>
   </div>
-  <Footer/>
   </>
 );
   

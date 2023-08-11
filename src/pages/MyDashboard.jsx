@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './MyDashboard.css'
 import NavBar from '../components/footer and header/navigation/NavBar';
 import Footer from '../components/footer and header/Footer'
+import { useNavigate, useNavigation } from 'react-router-dom';
 
 const MyDashboard = () => {
   const [uploadedProducts, setUploadedProducts] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     // Fetch  products from the backend 
@@ -110,11 +112,10 @@ const MyDashboard = () => {
 
   return (
     <>
-    <NavBar />
     <div>
   <div>
-      <button onClick={() => window.location.href = '/'} class="dashboard-header-button">Back to Home</button>
-      <button onClick={() => window.location.href = '/products'} class="dashboard-header-button">Products</button>
+      <button onClick={() => navigate('/')} className="dashboard-header-button">Back to Home</button>
+      <button onClick={() => navigate('/products')} className="dashboard-header-button">Products</button>
       {/* <div class="dropdown">
         <button class="dashboard-Categories-button">Categories</button>
         <div class="dropdown-content">
@@ -124,7 +125,7 @@ const MyDashboard = () => {
           <a href="/category/desktops">Desktops</a>
         </div>
     </div> */}
-      <button onClick={() => window.location.href = '/upload-product'} class="dashboard-header-button">+ Add new product</button>
+      <button onClick={() => navigate('/seller/dashboard/product-upload')} className="dashboard-header-button">+ Add new product</button>
   </div>
   <div>
      <h2 className="dashboard-heading">My Dashboard</h2>     
@@ -141,14 +142,13 @@ const MyDashboard = () => {
           <img src={product.image} alt={product.name} className="product-image" />
           <div className="dashboard-product-name">{product.name}</div>
           <div className="dashboard-product-description">{product.description}</div>
-          <div className="dshboard-product-price">Ksh {product.price}</div>
-          <button onClick={() => window.location.href = '/upload-product'} className="product-edit">Edit product</button>
+          <div className="dashboard-product-price">Ksh {product.price}</div>
+          <button onClick={() => navigate('/seller/dashboard/product-upload')} className="product-edit">Edit product</button>
           <button  className="product-delete">Delete</button>
         </div>
       ))}
     </div>
   </div>
-  <Footer/>
   </>
 );
 };

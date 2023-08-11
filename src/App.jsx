@@ -16,6 +16,7 @@ import Footer from "./components/footer and header/Footer";
 import Checkout from "./components/productslist/cart/checkout/Checkout";
 import MyDashboard from "./pages/MyDashboard";
 import UserProfile from './components/UserProfile/UserProfile';
+import ProductUploadForm from "./pages/ProductUploadForm";
 // import { useUser } from './contexts/UserContext';
 
 const App = () => {
@@ -141,6 +142,7 @@ const App = () => {
 
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/seller/dashboard" element={<MyDashboard />} />
+        <Route path="/seller/dashboard/product-upload" element={<ProductUploadForm />} />
         {/* ...other routes go here */}
       </Routes>
 
