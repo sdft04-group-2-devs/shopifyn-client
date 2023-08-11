@@ -80,22 +80,25 @@ const App = () => {
   // }
 
   console.log(userId);
+  const renderNavBar = !['/signup', '/login'].includes(window.location.pathname);
 
   return (
     <>
+      {renderNavBar && (
+        <NavBar
+          isAuthenticated={isAuthenticated}
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+          handleSearch={handleSearch}
+          handleCartClick={handleCartClick}
+          showCart={showCart}
+          userRole={userRole}
+        />
+      )}
       <Routes>
         <Route exact path="/signup" element={<SignUpPage />} />
         <Route exact path="/login" element={<LogInPage />} />
-        
-      </Routes>
-      <NavBar isAuthenticated={isAuthenticated}
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-              handleSearch={handleSearch}
-              handleCartClick={handleCartClick}
-              showCart={showCart}
-              userRole={userRole} />
-      <Routes>
+
         <Route
           exact
           path="/products"
@@ -116,18 +119,9 @@ const App = () => {
         <Route
           exact
           path="/products/:id"
-          element={
-            <ProductView
-              currentUser={userId}
-              setCurrentUser={setCurrentUser}
-            />
-          }
+          element={<ProductView currentUser={userId} setCurrentUser={setCurrentUser} />}
         />
-        <Route
-          exact
-          path="/cart"
-          element={<Cart currentUserId={userId} products={products} />}
-        />
+        <Route exact path="/cart" element={<Cart currentUserId={userId} products={products} />} />
         <Route
           path="/"
           element={
