@@ -15,7 +15,6 @@ const LandingPage = ({showCart, handleSearch, handleCartClick,products, isAuthen
   return (
    
     <>
-        <NavBar showCart={showCart} isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} />
     <div className='image-container'>
         {/* <img src={background_img} alt="" /> */}
         <div className='text'>
@@ -70,8 +69,6 @@ const LandingPage = ({showCart, handleSearch, handleCartClick,products, isAuthen
       <h1>Today's Best Deals For You</h1>
       
     </div>
-
-  <Footer/>
 
 
   </>   

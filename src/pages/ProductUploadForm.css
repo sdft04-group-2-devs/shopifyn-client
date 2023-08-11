@@ -10,10 +10,7 @@
   box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
 }
 
-.product-name-input,
-.product-description-input,
-.product-price-input,
-.product-image-upload {
+.input{
   width: 100%; 
   padding: 10px;
   margin-bottom: 10px;

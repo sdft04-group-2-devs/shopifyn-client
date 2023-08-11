@@ -71,7 +71,6 @@ const DeliveriesPage = () => {
   return (
     <>
 
-    <NavBar />
     <div className="deliveries_page">
       <div className="deliveries-page-product-container">
         <div className="deliveries-page-image-gallery">
