@@ -115,7 +115,7 @@ const MyDashboard = () => {
   <div>
       <button onClick={() => window.location.href = '/'} class="dashboard-header-button">Back to Home</button>
       <button onClick={() => window.location.href = '/products'} class="dashboard-header-button">Products</button>
-      <div class="dropdown">
+      {/* <div class="dropdown">
         <button class="dashboard-Categories-button">Categories</button>
         <div class="dropdown-content">
           <a href="/category/phones">Phones</a>
@@ -123,7 +123,7 @@ const MyDashboard = () => {
           <a href="/category/woofers">Woofers</a>
           <a href="/category/desktops">Desktops</a>
         </div>
-    </div>
+    </div> */}
       <button onClick={() => window.location.href = '/upload-product'} class="dashboard-header-button">+ Add new product</button>
   </div>
   <div>

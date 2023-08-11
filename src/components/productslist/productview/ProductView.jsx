@@ -8,7 +8,6 @@ import { IconButton } from "@mui/material";
 import { PlusIcon, StarIcon } from "@heroicons/react/24/outline";
 import { RadioGroup } from "@headlessui/react";
 
-
 const ProductView = ({currentUser, setCurrentUser}) => {
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
@@ -18,11 +17,8 @@ const ProductView = ({currentUser, setCurrentUser}) => {
   const [ratings, setRatings] = useState([]);
   const params = useParams();
   const navigate = useNavigate()
-  
 
-  
 
-  
 
   useEffect(() => {
     fetch(`http://localhost:3000/products/${params.id}`)
@@ -56,28 +52,7 @@ const ProductView = ({currentUser, setCurrentUser}) => {
   };
 
   const handleAddToCartClick = async () => {
-    
-    try {
-      const response = await fetch('http://localhost:3000/cart_items', {
-        method: "Post",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`,
-        },
-        body: JSON.stringify({
-          product_id: product.id, // Assuming you have a unique ID for products
-          quantity: quantity,
-        }),
-      });
-      if (response.ok) {
-        console.log(`Adding ${quantity} product(s) to cart...`);
-      } else {
-        console.error('Error:', response.status);
-      }
-      
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    alert('Add to cart clicked')
   };
 
   const handleSubmitRating = () => {
@@ -131,7 +106,6 @@ const ProductView = ({currentUser, setCurrentUser}) => {
 
   return (
     <>
-      <NavBar />
       <div className="product-view-container">
         <div className="product-view-image-gallery">
           <div className="product-view-main-image">
@@ -254,7 +228,6 @@ const ProductView = ({currentUser, setCurrentUser}) => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

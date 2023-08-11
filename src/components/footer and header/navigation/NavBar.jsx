@@ -8,7 +8,12 @@ import './NavBar.css'
 import Logo from '../../../../public/shopyfyn.png'
 
 
-const NavBar = () => {
+
+const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClick}) => {
+  const [showCart, setShowCart] = useState(false);
+  const [searchItem, setSearchItem] = useState('')
+  const navigate = useNavigate()
+  console.log(userRole);
 
 
     const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -19,6 +24,32 @@ const NavBar = () => {
           padding: '0 4px',
         },
       }));
+
+      const handleLogout = () => {
+        fetch("http://localhost:3000/logout", {
+          method: "DELETE",
+        })
+          .then((response) => {
+            if (response.ok) {
+              setCurrentUser(null);
+              sessionStorage.removeItem('user')
+              alert('Logged out successfully')
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+
+      
+      };
+
+      const handleSearch = (e) => {
+        const searchTerm = e.target.value;
+        setSearchItem(searchTerm)
+        onSearch(searchTerm)
+      }
+
+      console.log(currentUser);
 
   return (
     <div className="nav-container">
@@ -71,10 +102,13 @@ const NavBar = () => {
       <div className="nav-container-nav">
         <div className="nav-container-navbar-menu">
           <ul className="nav-container-navbar-menu">
-            <li>Home</li>
-            <li>Products</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
+            <Link to={'/'}>Home</Link>
+            <Link to={'/products'}>Products</Link>
+            {
+              userRole === 'Seller' ? <Link to={'/seller/dashboard'}>Dashboard</Link> : null
+            }
+            <Link>About Us</Link>
+            <Link>Contact Us</Link>
           </ul>
         </div>
 
@@ -82,8 +116,19 @@ const NavBar = () => {
 
         <ShoppingCartIcon className="nav-container-navbar-cart" />
 
-        <PersonIcon className="nav-container-navbar-user" />
-
+        <Link to={'/user-profile'}><PersonIcon className="nav-container-navbar-user" /></Link>
+        {currentUser ? (
+          <>
+            <p id='welcome_text'>Hello, {currentUser.user.username}</p>
+            <button className="header__button" onClick={handleLogout} style={{ marginRight: '20px' }}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link to="/login">
+            <button className="header__button"> Log In</button>
+          </Link>
+        )}
       </div>
 
     </div>
