@@ -16,10 +16,7 @@ import Cart from './components/productslist/cart/Cart';
 // import { useUser } from './contexts/UserContext';
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 6d80e98b4e41eef88cac4f5a947873196af3c786
 const App = () => {
   // const user = useUser()
   const [currentUser, setCurrentUser] = useState(null);
@@ -86,15 +83,12 @@ const handleCartClick = () => {
         <Route exact path="/products" element={<ProductList products={products} isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} showCart={showCart}/>}/>
         <Route exact path='/user-profile' element= {<UpdateProfile />} />
         <Route exact path='/deliveries' element= {<DeliveriesPage />} />
-<<<<<<< HEAD
         <Route exact path='/product-view' element= {<ProductView />} />
         <Route exact path="/my-dashboard" element={<MyDashboard />} />
         <Route exact path="/upload-product" element={<ProductUploadForm />} />
         <Route path='/' element= {<LandingPage />} />
-=======
         <Route exact path="/my-dashboard" element={<MyDashboard />} />
         <Route exact path="/upload-product" element={<ProductUploadForm />} />
->>>>>>> 6d80e98b4e41eef88cac4f5a947873196af3c786
         <Route exact path='/products/:id' element= {<ProductView currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
         <Route exact path='/cart' element={<Cart />} />
         <Route path='/' element= {<LandingPage isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} showCart={showCart} />} />
