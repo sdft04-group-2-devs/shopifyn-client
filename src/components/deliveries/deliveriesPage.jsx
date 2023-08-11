@@ -5,10 +5,8 @@ import ShippingDetails from "./shippingDetails/ShippingDetails";
 import DeliverySelection from "./deliverySelection/DeliverySelection";
 import PaymentSection from "./payments/PaymentSection";
 import { useLocation } from "react-router";
-//import mailjet from 'node-mailjet';
-
-
-//const mailjetClient = mailjet.connect('352bb8e0120c8880cdd76d3ad2d16a82', 'fd0e850b2a461f5746571bcc796551f0');
+import NavBar from "../footer and header/navigation/NavBar";
+import Footer from "../footer and header/Footer";
 
 const DeliveriesPage = () => {
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
@@ -70,6 +68,9 @@ const DeliveriesPage = () => {
   const width = `${(100 / (totalSteps - 1)) * (activeStep - 1)}%`;
 
   return (
+    <>
+
+    <NavBar />
     <div className="deliveries_page">
       <div className="deliveries-page-product-container">
         <div className="deliveries-page-image-gallery">
@@ -105,7 +106,7 @@ const DeliveriesPage = () => {
               <button>+</button>
             </div>
           </div>
-          <h3 className="deliveries-page-product-price">Price: Ksh. 40,000</h3>
+          <h3 className="deliveries-page-product-price">Price: Ksh. {product.price}</h3>
           <button className="deliveries-page-details-toggle" onClick={toggleDetails}>
             {isDetailsExpanded ? "Hide Details" : "More Details"}
           </button>
@@ -151,6 +152,8 @@ const DeliveriesPage = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
