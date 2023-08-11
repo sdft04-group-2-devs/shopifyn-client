@@ -13,6 +13,7 @@ import MyDashboard from "./pages/MyDashboard";
 import ProductUploadForm  from "./pages/ProductUploadForm";
 import { ProductsContext } from './contexts/ProductsContext';
 import Cart from './components/productslist/cart/Cart';
+import UserProfile from './components/UserProfile/UserProfile';
 // import { useUser } from './contexts/UserContext';
 
 
@@ -81,7 +82,8 @@ const handleCartClick = () => {
         <Route exact path="/signup" element={<SignUpPage/>} />
         <Route exact path="/login" element={<LogInPage/>} />
         <Route exact path="/products" element={<ProductList products={products} isAuthenticated={isAuthenticated} currentUser={currentUser} setCurrentUser={setCurrentUser} handleSearch={handleSearch} handleCartClick={handleCartClick} showCart={showCart}/>}/>
-        <Route exact path='/user-profile' element= {<UpdateProfile />} />
+        <Route exact path='/user-profile' element= {<UserProfile />} />
+        <Route exact path='/update-profile' element= {<UpdateProfile />} />
         <Route exact path='/deliveries' element= {<DeliveriesPage />} />
         <Route exact path="/my-dashboard" element={<MyDashboard />} />
         <Route exact path="/upload-product" element={<ProductUploadForm />} />
