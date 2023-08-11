@@ -5,7 +5,6 @@ import Footer from '../../components/footer and header/Footer';
 import NavBar from '../../components/footer and header/navigation/NavBar';
 
 
-
 const LandingPage = ({showCart, handleSearch, handleCartClick,products, isAuthenticated, setCurrentUser, currentUser}) => {
     const navigate = useNavigate()
 

@@ -24,9 +24,10 @@ const App = () => {
   const { products } = useContext(ProductsContext);
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [showCart, setShowCart] = useState(false);
-  const navigate = useNavigate();
-  const [userId, setUserId] = useState(null);
+  const navigate = useNavigate()
+  const [userId, setUserId] = useState(null)
   const [userRole, setUserRole] = useState(null);
+
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
@@ -66,6 +67,9 @@ const App = () => {
     setFilteredProducts(filteredList);
   };
 
+
+
+
   const handleCartClick = () => {
     // setShowCart(!showCart);
     if (isAuthenticated) {
@@ -75,12 +79,6 @@ const App = () => {
     }
   };
 
-  console.log(`${isAuthenticated}`, currentUser);
-  console.log("user Role: ", userRole);
-  // setUserId(currentUser.user.id);
-  // if (currentUser) {
-  //   setUserId(currentUser.user.id);
-  // }
 
   console.log(userId);
   const renderNavBar = !['/signup', '/login', '/reset-password'].includes(window.location.pathname);

@@ -2,8 +2,8 @@ import { Badge, IconButton } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import styled from '@emotion/styled';
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import './NavBar.css'
 import Logo from '../../../../public/shopyfyn.png'
 
@@ -13,7 +13,6 @@ const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClic
   const [searchItem, setSearchItem] = useState('')
   const navigate = useNavigate()
   console.log(userRole);
-  
 
 
     const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -55,7 +54,7 @@ const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClic
     <div className="nav-container">
       <div className="nav-container-logo">
         <img src={Logo} alt="Shopifyn" />
-        <span><Link to={'/'}>Shopifyn</Link></span>
+        <span>Shopifyn</span>
       </div>
       {/* <nav className="nav-container-nav">
         <div className="nav-container-navbar-items-left">
@@ -114,7 +113,7 @@ const NavBar = ({userRole, currentUser, setCurrentUser, onSearch, handleCartClic
 
         {/* <input type="search" className="nav-container-navbar-search" placeholder="search" /> */}
 
-        <button onClick={handleCartClick}><ShoppingCartIcon className="nav-container-navbar-cart" /></button>
+        <ShoppingCartIcon className="nav-container-navbar-cart" />
 
         <Link to={'/user-profile'}><PersonIcon className="nav-container-navbar-user" /></Link>
         {currentUser ? (
