@@ -5,12 +5,12 @@ import { Link, useNavigate } from 'react-router-dom';
 // import 'react-toastify/dist/ReactToastify.css';
 import './LogInPage.css';
 import EllipseImage from './assets/img.png';
-import { useAuth } from '../contexts/AuthContext';
+// import { useAuth } from '../contexts/AuthContext';
 const LogInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
-  const {updateAuthToken} = useAuth()
+  // const {updateAuthToken} = useAuth()
   // const {updateUserId} = useUser()
   const [loggedInUser, setLoggedInUser] = useState(null)
 
@@ -44,7 +44,7 @@ const LogInPage = () => {
             sessionStorage.setItem('user', JSON.stringify(user))
             setLoggedInUser(user)
           // after successful login...
-          updateAuthToken(user.token)
+          // updateAuthToken(user.token)
           // updateUserId(user.user)
           navigate('/')
           })
