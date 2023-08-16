@@ -116,9 +116,9 @@ const NavBar = ({
         {/* <input type="search" className="nav-container-navbar-search" placeholder="search" /> */}
 
         <button
-          onClick={() => {
-            navigate("/cart");
-          }}
+          onClick={
+            handleCartClick
+          }
         >
           <ShoppingCartIcon className="nav-container-navbar-cart" />
         </button>
@@ -140,7 +140,7 @@ const NavBar = ({
           </>
         ) : (
           <Link to="/login">
-            <button className="header__button"> Log In</button>
+            <button className="logout_header__button"> Log In</button>
           </Link>
         )}
       </div>

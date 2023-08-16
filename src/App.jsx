@@ -72,11 +72,11 @@ const App = () => {
 
   const handleCartClick = () => {
     // setShowCart(!showCart);
-    if (isAuthenticated) {
-      navigate("/cart");
-    } else {
-      console.log("Login");
-    }
+    // if (isAuthenticated) {
+      setShowCart(!showCart);
+    // } else {
+      // console.log("Login");
+    // }
   };
 
 
@@ -113,6 +113,7 @@ const App = () => {
               handleSearch={handleSearch}
               handleCartClick={handleCartClick}
               showCart={showCart}
+              setShowCart={setShowCart}
             />
           }
         />
@@ -123,7 +124,7 @@ const App = () => {
           path="/products/:id"
           element={<ProductView currentUser={userId} setCurrentUser={setCurrentUser} />}
         />
-        <Route exact path="/cart" element={<Cart currentUserId={userId} products={products} />} />
+        {/* <Route exact path="/cart" element={<Cart currentUserId={userId} products={products} handleCartClick={handleCartClick} />} /> */}
         <Route
           path="/"
           element={

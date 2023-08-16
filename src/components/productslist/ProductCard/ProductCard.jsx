@@ -2,9 +2,11 @@
 import React, { useState } from 'react';
 import './ProductCard.css';
 import { Link } from 'react-router-dom';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
-const ProductCard = ({ id, name, image_url_1, price, rating, handleCartClick }) => {
+const ProductCard = ({ id, name, image_url_1, price, rating, handleAddToCartClick }) => {
   const [liked, setLiked] = useState(false);
 
   const toggleLike = () => {
@@ -13,7 +15,7 @@ const ProductCard = ({ id, name, image_url_1, price, rating, handleCartClick }) 
   };
 
   const addToCart = () => {
-    handleCartClick(id);
+    handleAddToCartClick(id);
   };
 
   const renderStars = () => {
@@ -41,15 +43,12 @@ const ProductCard = ({ id, name, image_url_1, price, rating, handleCartClick }) 
       <div className="image">
         <img src={image_url_1} alt={name} className="product-image" />
         <div className={`like-button ${liked ? 'liked' : ''}`} onClick={toggleLike}>
-          {liked ? '💚' : '🤍'}
+          {liked ? <FavoriteIcon className='product-card-liked-button' /> : <FavoriteBorderIcon />}
         </div>
       </div>
       <div className="product-info">
         <Link to={`/products/${id}`} className="product-name">{name}</Link>
         <div className="product-price">Ksh. {price}</div>
-        <div className="product-rating">
-          {renderStars()} 
-        </div>
       </div>
       <button className="product-card-add-to-cart-button" onClick={addToCart}>Add to Cart</button>
     </div>

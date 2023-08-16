@@ -32,6 +32,11 @@ import { useNavigate } from 'react-router-dom';
 
 const  ProductUploadForm = () => {
   const navigate = useNavigate()
+    const [productName, setProductName] = useState('');
+  const [productDescription, setProductDescription] = useState('');
+  const [productPrice, setProductPrice] = useState('');
+  const [productImages, setProductImages] = useState([]);
+  const [uploadSuccess, setUploadSuccess] = useState(false);
 
   const handleUpload = () => {
     if (productName && productDescription && productPrice && productImages.length > 0) {
@@ -77,8 +82,14 @@ const  ProductUploadForm = () => {
           image_url_3:image_url_3
 
       })
+   }).then((response) => {
+    if (response.ok) {
+      response.json().then((data) => {
+        console.log('Uploaded successfuly:',data);
+        
+      })
+    }
    })
-   event.target.reset()
      
   }
   
