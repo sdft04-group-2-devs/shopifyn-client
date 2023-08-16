@@ -49,38 +49,6 @@ const Cart = ({ setShowCart, currentUserId, products, handleCartClick }) => {
   }
 
   return (
-    // <div>
-    //   <section>
-    //     <div className="cart-page">
-    //       <div className="cart-container">
-    //         <h2 className="cart-title">Shopping Cart</h2>
-    //         <div className="cart-items">
-    //           {cartProducts.map((product) => (
-    //             <div className="cart-item" key={product.id}>
-    //               <div className="item-image">
-    //                 <img src={product.image_url_1} alt={product.name} />
-    //               </div>
-    //               <div className="item-details">
-    //                 <h3>{product.name}</h3>
-    //                 <p>Brand: {product.brand}</p>
-    //                 <p>Price: Ksh.{product.price}</p>
-    //                 {/* <button className="remove-button">Remove</button> */}
-    //               </div>
-    //             </div>
-    //           ))}
-    //         </div>
-    //         <div className="cart-total">
-    //           <p>Subtotal: Ksh.{calculateTotalPrice()}</p>
-    //           <p>Shipping and taxes calculated at checkout.</p>
-    //           <button className="checkout-button" onClick={handleToCheckout}>Checkout</button>
-    //           <p className="continue-shopping">
-    //             or <button className="continue-shopping-button" onClick={handleContinueShopping}>Continue Shopping</button>
-    //           </p>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </section>
-    // </div>
 
     <div
     className="relative z-10"
@@ -162,7 +130,7 @@ const Cart = ({ setShowCart, currentUserId, products, handleCartClick }) => {
                               <div className="flex">
                                 <button
                                   type="button"
-                                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                                  className="font-medium text-[#003d29] hover:text-indigo-500"
                                   onClick={() => removeFromCart(item.id)}
                                 >
                                   Remove
@@ -188,7 +156,7 @@ const Cart = ({ setShowCart, currentUserId, products, handleCartClick }) => {
                 <div className="mt-6">
                   <a
                     href="#"
-                    className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                    className="flex items-center justify-center rounded-md border border-transparent bg-[#003d29] px-6 py-3 text-base font-medium text-white shadow-sm"
                   >
                     Checkout
                   </a>
@@ -198,7 +166,7 @@ const Cart = ({ setShowCart, currentUserId, products, handleCartClick }) => {
                     or
                     <button
                       type="button"
-                      className="font-medium text-indigo-600 hover:text-indigo-500"
+                      className="font-medium text-[#003d29] hover:text-indigo-500"
                       onClick={handleCartClick}
                     >
                       Continue Shopping

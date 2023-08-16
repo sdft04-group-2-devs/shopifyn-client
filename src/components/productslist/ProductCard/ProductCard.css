@@ -1,7 +1,6 @@
 .product-card {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
     align-items: flex-start;
     margin-bottom: 20px;
     flex-direction: column;
@@ -9,7 +8,6 @@
     padding: 16px;
     margin: 10px;
     border-radius: 8px;
-    position: relative;
     box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
     height: 90%;
   }
@@ -114,6 +112,10 @@
 
 .add-to-cart-button:active {
   transform: scale(1.2); 
+}
+
+.product-card-liked-button {
+  color: #003d29;
 }
 
  
