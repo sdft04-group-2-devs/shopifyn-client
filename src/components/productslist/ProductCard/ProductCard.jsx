@@ -4,7 +4,7 @@ import './ProductCard.css';
 import { Link } from 'react-router-dom';
 
 
-const ProductCard = ({ id, name, image_url_1, price, rating, handleCartClick }) => {
+const ProductCard = ({ id, name, image_url_1, price, rating, handleAddToCartClick }) => {
   const [liked, setLiked] = useState(false);
 
   const toggleLike = () => {
@@ -13,7 +13,7 @@ const ProductCard = ({ id, name, image_url_1, price, rating, handleCartClick }) 
   };
 
   const addToCart = () => {
-    handleCartClick(id);
+    handleAddToCartClick(id);
   };
 
   const renderStars = () => {
