@@ -4,31 +4,6 @@ import NavBar from '../components/footer and header/navigation/NavBar';
 import Footer from '../components/footer and header/Footer';
 import { useNavigate } from 'react-router-dom';
 
-// const ProductUploadForm = ({ onUpload }) => {
-//   const [productName, setProductName] = useState('');
-//   const [productDescription, setProductDescription] = useState('');
-//   const [productPrice, setProductPrice] = useState('');
-//   const [productImages, setProductImages] = useState([]);
-//   const [uploadSuccess, setUploadSuccess] = useState(false);
-
-//   const handleImageChange = (event) => {
-//     const selectedImages = Array.from(event.target.files);
-//     setProductImages(selectedImages);
-//   };
-
-  
-
-//       //fetch 
-
-//       console.log(set)
-      
-//       setProductName('');
-//       setProductDescription('');
-//       setProductPrice('');
-//       setProductImages([]);
-
-//     }
-//   };
 
 const  ProductUploadForm = () => {
   const navigate = useNavigate()
@@ -65,7 +40,7 @@ const  ProductUploadForm = () => {
       const image_url_3 = event.target[8].value
       
 
-   fetch("http://[::1]:3000/products", {
+   fetch("https://shopifyn-service.onrender.com/products", {
       method: "POST",
       headers: {
           "Content-Type": "application/json"
@@ -111,38 +86,6 @@ const  ProductUploadForm = () => {
     </div>
   </div>
   <div>
-    {/* <div className="product-upload-card">
-      <h3 className="product-upload-heading">Upload Product</h3>
-      <label for="product-name">Product Name:</label>
-      <input
-        type="text"
-        value={productName}
-        onChange={(e) => setProductName(e.target.value)}
-        className="product-name-input"
-      />
-      <label for="Description">Description:</label>
-      <textarea
-        value={productDescription}
-        onChange={(e) => setProductDescription(e.target.value)}
-        className="product-description-input"
-      />
-      <label for="product-price-input">Product Price:</label>
-      <input
-        type="number"
-        value={productPrice}
-        onChange={(e) => setProductPrice(e.target.value)}
-        className="product-price-input"
-      />
-      <input
-       type="text" 
-       placeholder='Image url'
-       multiple onChange={handleImageChange} 
-       className="product-image-upload" 
-       />
-      <button onClick={handleUpload} className="product-upload-button">Upload</button>
-      {uploadSuccess && <p className="upload-success">Upload successful!</p>}
-      <button onClick={() => window.location.href = '/my-dashboard'} className="go-to-dashboard-button">Go to dashboard</button>
-    </div> */}
     <div className="product-upload-card">
     <form className="add-product-form" onSubmit={handleSubmit}>
           <input className='input' required type='text' placeholder='Name' />

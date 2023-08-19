@@ -46,7 +46,7 @@ const UserProfile = ({ userId, email: initialEmail, username: initialUsername, o
     e.preventDefault();
     onChangeUsername(newUsername);
     setNewUsername("");
-    fetch(`http://localhost:3000/users/${userId}/username`, {
+    fetch(`https://shopifyn-service.onrender.com/users/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
