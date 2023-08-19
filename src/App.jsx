@@ -32,7 +32,7 @@ const App = () => {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const response = await fetch("http://localhost:3000/logged_in"); // Change this URL to the appropriate endpoint
+        const response = await fetch("https://shopifyn-service.onrender.com/logged_in"); // Change this URL to the appropriate endpoint
         if (response.ok) {
           const user = await response.json();
           //setCurrentUser(user);

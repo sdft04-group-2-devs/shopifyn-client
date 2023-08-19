@@ -10,7 +10,7 @@ const ProductProvider = ({children}) => {
     // fetch products
     useEffect(() => {
         const fetchProducts = async () =>{
-            const response = await fetch('http://localhost:3000/products')
+            const response = await fetch('https://shopifyn-service.onrender.com/products')
             const data = await response.json()
             setProducts(data)
         }

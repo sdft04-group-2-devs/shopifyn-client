@@ -89,7 +89,7 @@ const SignUpPage = () => {
      else {
       // Perform signup logic here
       // <Alert severity="success">Signed Up Successfully</Alert>;
-      fetch("http://localhost:3000/signup", {
+      fetch("https://shopifyn-service.onrender.com/signup", {
         method: "POST",
         headers: {
           "content-type": "application/json",

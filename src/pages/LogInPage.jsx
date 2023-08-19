@@ -30,7 +30,7 @@ const LogInPage = () => {
       console.error('Please fillin all fields');
     } else {
       // Perform login logic here
-      fetch("http://localhost:3000/login", {
+      fetch("https://shopifyn-service.onrender.com/login", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
